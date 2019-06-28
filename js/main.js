@@ -1,8 +1,3 @@
-function breve(){
-    alert("OPS!!! O projeto está em desenvolvimento!\nEm breve, você contará com mais informações.");
-    window.location="index.html#portfolio";
-}
-
 (function () {
    'use strict';
    
@@ -12,7 +7,7 @@ function breve(){
           target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
           if (target.length) {
             $('html,body').animate({
-              scrollTop: target.offset().top
+            scrollTop: target.offset().top
             }, 900);
             return true;
           }
@@ -23,11 +18,11 @@ function breve(){
     $(window).load(function() {
         var $container = $('.portfolio');
         $container.isotope({
-            filter: '*',
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false
+        filter: '*',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
             }
         });
     });
