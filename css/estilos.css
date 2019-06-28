@@ -1,11 +1,133 @@
 body, html {
 	font-family: 'Montserrat', sans-serif;
 	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
 	color: black;
 	font-weight: 400;
 	width: 100%;
 	height: 100%;
+}
+
+header .intro-text {
+	padding-top: 250px;
+	padding-bottom: 200px;
+}
+
+.intro {
+	display: table;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 80px;
+	background: url(../img/intro-bg.jpg) no-repeat right top;
+	background-color: darkgray;
+	background-size: cover;
+	-o-background-size: cover;
+}
+
+.intro p {
+	color: black;
+	margin: 10px 0 20px 0;
+	font-size: 22px;
+}
+
+#portfolio {
+	padding: 40px 0 100px 0;
+}
+
+.portfolio-item {
+	margin: 10px 0;
+}
+
+.portfolio-item .hover-bg {
+	overflow: hidden;
+	position: relative;
+}
+
+#apresentacao {
+	padding: 60px 0 60px 0;
+	background: #fff;
+}
+
+#apresentacao img {
+	width: 470px;
+	margin: 5px 30px 10px 0;
+}
+
+#contato {
+	padding: 60px 0 60px 0;
+	background: white;
+}
+
+#contato p {
+	color: black;
+	margin-bottom: 20px;
+	line-height: 24px;
+}
+
+#contato .text-danger {
+	color: red;
+	text-align: left;
+}
+
+#contato .form-control {
+	display: block;
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	color: black;
+	background-color: white;
+	border: 1px solid black;
+}
+
+#contato .form-control:focus {
+	border-color: black;
+	outline: 0;
+	box-shadow: transparent;
+}
+
+#contato .btn-default {
+	font-weight: 400;
+	color: black;
+	background-color: transparent;
+	border: 2px solid black;
+	padding: 10px 20px;
+	margin: 0;
+	font-size: 15px;
+	border-radius: 0;
+	margin-top: 20px;
+	text-transform: uppercase;
+	transition: all 0.3s;
+}
+
+#contato .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
+	background-color: black;
+	color: darkgray;
+}
+
+#footer {
+	background: white;
+	padding: 50px 0 20px 0;
+}
+
+#footer .social {
+	margin-top: 5px;
+}
+
+#footer .social ul li {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#footer .social i.fa {
+	font-size: 26px;
+	padding: 4px;
+	color: black;
+	transition: all 0.3s;
+}
+
+#footer .social i.fa:hover {
+	color: dimgray;
 }
 
 h1 {
@@ -39,11 +161,6 @@ p {
 	color: black;
 }
 
-p.intro {
-	margin: 12px 0 0;
-	line-height: 24px;
-}
-
 a {
 	color: black;
 }
@@ -56,14 +173,11 @@ a:hover, a:focus {
 ul, ol {
 	list-style: none;
     padding: 0;
-	webkit-padding: 0;
-	moz-padding: 0;
 }
 
 .btn:active, .btn.active {
 	background-image: none;
 	outline: 0;
-	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 
@@ -94,47 +208,6 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 .btn-custom:hover, .btn-custom:focus, .btn-custom.focus, .btn-custom:active, .btn-custom.active {
 	color: darkgray;
 	background-color: black;
-}
-
-.intro {
-	display: table;
-	width: 100%;
-	padding: 0;
-	margin-bottom: 80px;
-	background: url(../img/intro-bg.jpg) no-repeat right top;
-	background-color: darkgray;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
-}
-
-.intro .overlay {
-	background: -moz-linear-gradient(left, rgba(255,255,255,0.5) 0%, rgba(213,218,222,0) 100%);
-	background: -webkit-linear-gradient(left, rgba(255,255,255,0.5) 0%, rgba(213,218,222,0) 100%);
-	background: linear-gradient(to right, rgba(255,255,255,0.5) 0%, rgba(213,218,222,0) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#00d5dade', GradientType=1 );
-}
-
-.intro .fa {
-	font-size: 94px;
-	margin-bottom: 40px;
-	color: white;
-}
-
-.intro p {
-	color: black;
-	margin: 10px 0 20px 0;
-	font-size: 22px;
-}
-
-header .intro-text {
-	padding-top: 250px;
-	padding-bottom: 200px;
-}
-
-#portfolio {
-	padding: 40px 0 100px 0;
 }
 
 .categories {
@@ -170,57 +243,6 @@ ol.type li a:hover {
 	color: darkgray;
 }
 
-.isotope-item {
-	z-index: 2
-}
-
-.isotope-hidden.isotope-item {
-	z-index: 1
-}
-
-.isotope, .isotope .isotope-item {
-	-webkit-transition-duration: 0.8s;
-	-moz-transition-duration: 0.8s;
-	transition-duration: 0.8s;
-}
-
-.isotope-item {
-	margin-right: -1px;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	padding: 0 10px;
-}
-
-.isotope {
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transition-property: height, width;
-	-moz-transition-property: height, width;
-	transition-property: height, width;
-}
-
-.isotope .isotope-item {
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transition-property: -webkit-transform, opacity;
-	-moz-transition-property: -moz-transform, opacity;
-	transition-property: transform, opacity;
-}
-
-.portfolio-item {
-	margin: 10px 0;
-	-webkit-transition: all 0.5s ease-out;
-	-moz-transition: all 0.5s ease-out;
-	-ms-transition: all 0.5s ease-out;
-	-o-transition: all 0.5s ease-out;
-	transition: all 0.5s ease-out;
-}
-
-.portfolio-item .hover-bg {
-	overflow: hidden;
-	position: relative;
-}
-
 .hover-bg .hover-text {
 	position: absolute;
 	text-align: center;
@@ -246,135 +268,4 @@ ol.type li a:hover {
 
 .hover-bg:hover .hover-text {
 	opacity: 2;
-}
-
-#apresentacao {
-	padding: 60px 0 60px 0;
-	background: #fff;
-}
-
-#apresentacao h2 {
-	margin: 0 0 20px 0;
-	font-weight: 700;
-	font-size: 42px;
-	color: #333;
-	text-transform: uppercase;
-}
-
-#apresentacao img {
-	width: 470px;
-	margin: 5px 30px 10px 0;
-}
-
-#apresentacao p {
-	color: #666;
-	margin-bottom: 20px;
-	line-height: 24px;
-}
-
-#contato {
-	padding: 60px 0 60px 0;
-	background: white;
-}
-
-#contato h2 {
-	margin: 0 0 20px 0;
-	font-weight: 700;
-	font-size: 42px;
-	color: black;
-	text-transform: uppercase;
-}
-
-#contato p {
-	color: black;
-	margin-bottom: 20px;
-	line-height: 24px;
-}
-
-#contato .text-danger {
-	color: red;
-	text-align: left;
-}
-
-#contato .form-control {
-	display: block;
-	width: 100%;
-	padding: 6px 12px;
-	font-size: 15px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	color: black;
-	background-color: white;
-	border: 1px solid black;
-}
-
-#contato .btn-default {
-	font-weight: 400;
-	color: black;
-	background-color: transparent;
-	border: 2px solid black;
-	padding: 10px 20px;
-	margin: 0;
-	font-size: 15px;
-	border-radius: 0;
-	margin-top: 20px;
-	text-transform: uppercase;
-	transition: all 0.3s;
-}
-
-#contato .form-control:focus {
-	border-color: black;
-	outline: 0;
-	-webkit-box-shadow: transparent;
-	box-shadow: transparent;
-}
-
-.form-control:-webkit-input-placeholder {
-    color: black;
-}
-
-.form-control:-moz-placeholder {
-    color: black;
-}
-
-.form-control:-moz-placeholder {
-    color: black;
-}
-
-.form-control:-ms-input-placeholder {
-    color: black;
-}
-
-#contato .btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active {
-	background-color: black;
-	color: darkgray;
-}
-
-#footer {
-	background: white;
-	padding: 50px 0 20px 0;
-}
-
-#footer p {
-	font-size: 15px;
-	color: black;
-}
-
-#footer .social {
-	margin-top: 5px;
-}
-#footer .social ul li {
-	display: inline-block;
-	margin-right: 20px;
-}
-
-#footer .social i.fa {
-	font-size: 26px;
-	padding: 4px;
-	color: black;
-	transition: all 0.3s;
-}
-
-#footer .social i.fa:hover {
-	color: dimgray;
 }
