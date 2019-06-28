@@ -1,3 +1,3 @@
 Atenção
 
-ste site é somente para fins acadêmicos.
+Este site é somente para fins acadêmicos.
