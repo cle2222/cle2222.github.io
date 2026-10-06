@@ -1,222 +1,64 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FaturaSim | Treinamento</title>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FaturaSim</title>
 <style>
-:root{
- --ink:#172033;--muted:#697386;--line:#e5e9f0;--bg:#f6f7fb;--card:#fff;
- --brand:#5b2cc9;--brand2:#7b52dc;--good:#14845b;--goodbg:#eaf8f2;
- --bad:#c33d4d;--badbg:#fff0f2;--nav:#111827;--shadow:0 14px 35px rgba(23,32,51,.08)
-}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
-button,input{font:inherit}button{cursor:pointer}
-.header{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 34px;justify-content:space-between}
-.brand{display:flex;gap:11px;align-items:center;font-weight:850;letter-spacing:-.4px}.brandmark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:900}
-.header span{font-size:12px;color:var(--muted)}
-.container{max-width:1220px;margin:auto;padding:32px 24px}
-.hero{background:linear-gradient(115deg,#29135f,#6334c7);border-radius:24px;color:#fff;padding:38px 42px;box-shadow:0 20px 50px rgba(65,33,145,.22);margin-bottom:25px}
-.hero .eyebrow{text-transform:uppercase;letter-spacing:1.2px;font-size:11px;font-weight:800;opacity:.72}.hero h1{font-size:36px;letter-spacing:-1.2px;margin:8px 0}.hero p{margin:0;max-width:700px;opacity:.86;line-height:1.55}
-.library{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.flow-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:235px}.flow-icon{width:42px;height:42px;border-radius:12px;background:#f0ebff;color:var(--brand);display:grid;place-items:center;font-weight:900;margin-bottom:18px}.flow-card h3{margin:0 0 8px;font-size:17px}.flow-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55;flex:1}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:750}.btn-primary{background:var(--brand);color:#fff}.btn-primary:hover{background:#4c22b0}.btn-secondary{background:#eef1f6;color:#3d4657}.btn-wide{width:100%}
+:root{--ink:#172033;--muted:#697386;--line:#e4e8ef;--bg:#f5f6fa;--brand:#5b2cc9;--brand2:#7b52dc;--good:#16865d;--bad:#c43e4e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}button{font:inherit;cursor:pointer}
+.header{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px}.brand{font-weight:850;display:flex;gap:10px;align-items:center}.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center}.header span{font-size:12px;color:var(--muted)}
+.container,.shell{max-width:1240px;margin:auto;padding:32px 24px}.hero{background:linear-gradient(115deg,#29135f,#6334c7);color:#fff;border-radius:24px;padding:38px 42px;margin-bottom:24px;box-shadow:0 20px 50px #41219138}.ey{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.1px;opacity:.72}.hero h1{font-size:35px;margin:8px 0}.hero p{margin:0;max-width:760px;line-height:1.55;opacity:.88}.library{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 14px 35px #1720330d;display:flex;flex-direction:column;min-height:225px}.icon{width:42px;height:42px;border-radius:12px;background:#f0ebff;color:var(--brand);display:grid;place-items:center;font-weight:900;margin-bottom:18px}.card h3{margin:0 0 8px}.card p{color:var(--muted);font-size:13px;line-height:1.5;flex:1}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:750}.primary{background:var(--brand);color:#fff}.secondary{background:#eef1f6;color:#3d4657}.wide{width:100%}
+#sim,#finish{display:none}.top{display:flex;align-items:center;gap:14px;margin-bottom:14px}.back{border:0;background:transparent;color:var(--muted);font-weight:700}.title{flex:1}.title h2{margin:0;font-size:21px}.title p{margin:3px 0;color:var(--muted);font-size:12px}.step{font-size:12px;color:var(--muted);font-weight:750}.progress{height:5px;background:#e8ebf1;border-radius:20px;overflow:hidden;margin-bottom:15px}.bar{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:.25s}.workspace{display:grid;grid-template-columns:390px 1fr;gap:15px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 14px 35px #1720330d}.head{padding:14px 17px;border-bottom:1px solid var(--line);font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:.8px;color:#5e6879}.call{padding:16px;background:#fbfbfd}.customer{display:flex;gap:11px;align-items:center;margin-bottom:13px}.avatar{width:38px;height:38px;border-radius:50%;background:#ece7ff;color:var(--brand);display:grid;place-items:center;font-weight:900}.customer small{display:block;color:var(--muted);font-size:11px}.callbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px}.callbox strong{display:block;font-size:12px;margin-bottom:9px}.callbox audio{width:100%;height:35px}.na{font-size:11px;color:var(--muted);padding:9px;background:#f5f6f9;border-radius:8px}.trans{margin-top:10px;font-size:12px;line-height:1.55;color:#4d5768;min-height:40px}.typing{color:#9aa2af}.chat{padding:15px}.bubble{background:#f0f2f6;border-radius:13px;padding:11px 13px;font-size:13px;line-height:1.5;min-height:42px}.question{border-top:1px solid var(--line);padding:16px}.qey{font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:850;color:var(--brand)}.question h3{font-size:16px;line-height:1.4;margin:6px 0 12px}.option{width:100%;text-align:left;border:1px solid #dce1e9;background:#fff;border-radius:10px;padding:11px 12px;margin:5px 0}.option:hover{border-color:#9c84dc;background:#fbfaff}.option.good{border-color:#56b993;background:#eaf8f2}.option.bad{border-color:#e37b88;background:#fff0f2}.feedback{margin-top:10px;border-radius:10px;padding:11px 12px;font-size:12px;line-height:1.5}.goodfb{background:#eaf8f2;color:#126544}.badfb{background:#fff0f2;color:#a32939}.system{padding:15px;background:#eef1f6}.label{font-size:11px;color:#667184;font-weight:800;margin-bottom:9px}.stage{position:relative;background:#fff;border:1px solid #d7dce5;border-radius:12px;overflow:hidden;min-height:620px}.stage img{display:block;width:100%;height:auto}.hot{position:absolute;border:2px solid transparent;background:transparent;border-radius:6px}.hot:hover{border-color:#6c42d4;background:#6c42d41a}.hint{font-size:11px;color:#657083;margin-top:8px}
+.overlay{position:fixed;inset:0;background:#101624a8;backdrop-filter:blur(5px);display:none;align-items:center;justify-content:center;z-index:20}.quiz{width:min(650px,94vw);background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 30px 90px #0006}.quizhead{padding:26px 28px;background:linear-gradient(115deg,#29135f,#6334c7);color:#fff}.quizhead h2{margin:6px 0 0}.quizbody{padding:26px 28px}.quizbody p{line-height:1.5}.quizopt{width:100%;text-align:left;background:#fff;border:1px solid #dce1e9;border-radius:11px;padding:13px;margin:6px 0}.quizopt:hover{border-color:#9c84dc;background:#fbfaff}
+.finishbox{max-width:650px;margin:80px auto;background:#fff;border:1px solid var(--line);border-radius:22px;padding:45px;text-align:center;box-shadow:0 14px 35px #1720330d}.check{font-size:45px;color:var(--good)}@media(max-width:950px){.library,.workspace{grid-template-columns:1fr}.header{padding:0 18px}}
+</style></head><body>
+<header class="header"><div class="brand"><div class="mark">F</div>FaturaSim</div><span>Treinamento de esclarecimento de faturas</span></header>
+<main id="home" class="container"><section class="hero"><div class="ey">Biblioteca de treinamento</div><h1>Treine como se estivesse em uma ligação real</h1><p>Ouça, acompanhe a transcrição, navegue pelo sistema e enfrente checkpoints que verificam se o conhecimento foi realmente absorvido.</p></section>
+<div class="library">
+<div class="card"><div class="icon">01</div><h3>Fatura maior que o esperado</h3><p>Investigue a composição da cobrança e identifique a origem do valor.</p><button class="btn primary wide start" data-id="fatura">Iniciar fluxo</button></div>
+<div class="card"><div class="icon">02</div><h3>Serviço adicional</h3><p>Valide a origem de um serviço apresentado na fatura.</p><button class="btn primary wide start" data-id="servico">Iniciar fluxo</button></div>
+<div class="card"><div class="icon">03</div><h3>Juros e encargos</h3><p>Analise o histórico e esclareça a cobrança.</p><button class="btn primary wide start" data-id="juros">Iniciar fluxo</button></div></div></main>
 
-#simulation{display:none}.sim-shell{max-width:1460px;margin:auto;padding:20px}.sim-top{display:flex;align-items:center;gap:14px;margin-bottom:15px}.back{border:0;background:transparent;color:var(--muted);font-weight:700;padding:8px}.sim-title{flex:1}.sim-title h2{margin:0;font-size:21px;letter-spacing:-.4px}.sim-title p{margin:3px 0 0;color:var(--muted);font-size:12px}.step-indicator{font-size:12px;color:var(--muted);font-weight:700}.progress{height:5px;background:#e8ebf1;border-radius:20px;overflow:hidden;margin-bottom:15px}.progress>div{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:.25s}
+<section id="sim"><div class="shell"><div class="top"><button class="back" id="back">← Voltar</button><div class="title"><h2 id="ft"></h2><p id="fd"></p></div><div class="step" id="si"></div></div><div class="progress"><div class="bar" id="pb"></div></div>
+<div class="workspace"><aside class="panel"><div class="head">Chamada em andamento</div><div class="call"><div class="customer"><div class="avatar">C</div><div><b id="cn"></b><small>Cliente</small></div></div><div class="callbox"><strong>🎧 Gravação deste cenário</strong><audio id="aud" controls></audio><div id="na" class="na">Aqui ficará o arquivo de áudio específico deste fluxo.</div><div class="trans"><b>Transcrição</b><br><span id="tr"></span></div></div></div><div class="chat"><div class="qey">Cliente</div><div class="bubble" id="bubble"></div></div><div class="question" id="q"></div></aside>
+<section class="panel"><div class="head">Sistema utilizado no procedimento</div><div class="system"><div class="label" id="sl"></div><div class="stage" id="stage"></div><div class="hint">Imagens-exemplo incorporadas. Na versão final, cada uma pode ser substituída pelo print real sem alterar a lógica dos hotspots.</div></div></section></div></div></section>
 
-.workspace{display:grid;grid-template-columns:380px minmax(0,1fr);gap:15px;align-items:start}.left,.right{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.section-head{padding:14px 17px;border-bottom:1px solid var(--line);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.7px;color:#5e6879}
-.call{padding:16px;background:#fbfbfd}.customer{display:flex;align-items:center;gap:11px;margin-bottom:13px}.avatar{width:38px;height:38px;border-radius:50%;background:#ece7ff;color:var(--brand);display:grid;place-items:center;font-weight:900}.customer small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
-.callbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px}.callbox strong{display:block;font-size:12px;margin-bottom:9px}.callbox audio{width:100%;height:36px}.noaudio{font-size:12px;color:var(--muted);background:#f5f6f9;border-radius:8px;padding:10px}.transcript{margin-top:10px;font-size:12px;line-height:1.55;color:#4d5768}.transcript b{color:#263043}
-.chat{padding:15px}.bubble{background:#f0f2f6;border-radius:13px;padding:11px 13px;font-size:13px;line-height:1.5}.question{border-top:1px solid var(--line);padding:16px}.eyebrow2{font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:850;color:var(--brand)}.question h3{font-size:16px;line-height:1.4;margin:6px 0 12px}.option{width:100%;text-align:left;border:1px solid #dce1e9;background:#fff;border-radius:10px;padding:11px 12px;margin:5px 0;color:#273143}.option:hover{border-color:#9c84dc;background:#fbfaff}.option.good{border-color:#56b993;background:var(--goodbg)}.option.bad{border-color:#e37b88;background:var(--badbg)}.option:disabled{cursor:default}.feedback{margin-top:10px;border-radius:10px;padding:11px 12px;font-size:12px;line-height:1.5}.feedback.good{background:var(--goodbg);color:#126544}.feedback.bad{background:var(--badbg);color:#a32939}.next{margin-top:9px}
-
-.system{padding:15px;background:#eef1f6}.system-label{font-size:11px;color:#667184;font-weight:800;margin:0 0 9px}.screen-stage{background:#fff;border:1px solid #d7dce5;border-radius:12px;min-height:600px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.screen-stage.empty{background:linear-gradient(135deg,#f7f8fa,#edf0f5)}.empty-content{text-align:center;color:#6b7586;padding:30px}.empty-icon{font-size:42px;margin-bottom:10px}.empty-content h3{margin:0 0 7px;color:#30394b;font-size:17px}.empty-content p{font-size:12px;line-height:1.5;max-width:440px;margin:0 auto 15px}.upload-label{display:inline-block;background:#fff;border:1px solid #d6dce6;border-radius:9px;padding:9px 13px;font-size:12px;font-weight:750;cursor:pointer}.upload-label input{display:none}
-.real-screen{position:relative;width:100%;height:100%;min-height:600px;background:#fff}.real-screen img{display:block;width:100%;height:auto;min-height:600px;object-fit:contain;object-position:top center}.hotspot{position:absolute;border:2px solid transparent;background:transparent;border-radius:6px}.hotspot:hover,.hotspot:focus{border-color:#6c42d4;background:rgba(108,66,212,.10);outline:0}.screen-note{font-size:11px;color:#657083;margin-top:8px}
-
-#finish{display:none}.finish{max-width:650px;margin:80px auto;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:46px 34px;text-align:center}.finish-icon{width:72px;height:72px;border-radius:22px;background:var(--goodbg);display:grid;place-items:center;font-size:34px;margin:0 auto 16px}.finish h1{margin:0 0 8px}.finish p{color:var(--muted);font-size:14px}.finish-actions{display:flex;gap:9px;justify-content:center;margin-top:24px}
-@media(max-width:950px){.library{grid-template-columns:1fr}.workspace{grid-template-columns:1fr}.screen-stage,.real-screen,.real-screen img{min-height:430px}.header{padding:0 18px}.hero{padding:28px}.hero h1{font-size:29px}}
-</style>
-</head>
-<body>
-<header class="header"><div class="brand"><div class="brandmark">F</div>FaturaSim</div><span>Treinamento de esclarecimento de faturas</span></header>
-
-<main id="home" class="container">
-<section class="hero"><div class="eyebrow">Biblioteca de treinamento</div><h1>Escolha o fluxo para praticar</h1><p>Cada cenário possui sua própria chamada, transcrição, decisões e navegação no sistema. O ambiente simula o atendimento do início ao fim.</p></section>
-<section class="library">
-<article class="flow-card"><div class="flow-icon">01</div><h3>Fatura maior que o esperado</h3><p>Identifique a origem da diferença e conduza o cliente pela análise da cobrança.</p><button class="btn btn-primary btn-wide start" data-flow="fatura">Iniciar fluxo</button></article>
-<article class="flow-card"><div class="flow-icon">02</div><h3>Serviço adicional</h3><p>Analise um serviço adicional apresentado na fatura e aplique o procedimento correto.</p><button class="btn btn-primary btn-wide start" data-flow="servico">Iniciar fluxo</button></article>
-<article class="flow-card"><div class="flow-icon">03</div><h3>Juros e encargos</h3><p>Consulte o histórico e esclareça a cobrança de juros e encargos.</p><button class="btn btn-primary btn-wide start" data-flow="juros">Iniciar fluxo</button></article>
-</section>
-</main>
-
-<section id="simulation">
-<div class="sim-shell">
-<div class="sim-top"><button id="backHome" class="back">← Voltar</button><div class="sim-title"><h2 id="flowTitle"></h2><p id="flowDesc"></p></div><div class="step-indicator" id="stepIndicator"></div></div>
-<div class="progress"><div id="progressBar"></div></div>
-<div class="workspace">
-<aside class="left">
-<div class="section-head">Chamada</div>
-<div class="call">
-<div class="customer"><div class="avatar">C</div><div><b id="customer"></b><small>Cliente</small></div></div>
-<div class="callbox"><strong>🎧 Gravação desta chamada</strong><audio id="audio" controls></audio><div id="noAudio" class="noaudio">O arquivo de áudio deste cenário ainda será associado aqui.</div><div class="transcript"><b>Transcrição</b><br><span id="transcript"></span></div></div>
-</div>
-<div class="chat" id="chat"></div>
-<div class="question" id="question"></div>
-</aside>
-<section class="right">
-<div class="section-head">Sistema utilizado no procedimento</div>
-<div class="system"><div class="system-label" id="screenLabel"></div><div id="screenStage" class="screen-stage"></div><div class="screen-note">A área roxa aparece apenas ao passar o mouse sobre uma área clicável durante o treinamento.</div></div>
-</section>
-</div>
-</div>
-</section>
-
-<section id="finish"><div class="finish"><div class="finish-icon">✓</div><h1>Simulação concluída</h1><p>Parabéns! Você concluiu o procedimento.</p><p id="result"></p><div class="finish-actions"><button id="again" class="btn btn-secondary">↻ Refazer</button><button id="homeFinish" class="btn btn-primary">⌂ Página inicial</button></div></div></section>
-
+<section id="finish"><div class="finishbox"><div class="check">✓</div><h1>Simulação concluída</h1><p>Parabéns! Você concluiu o fluxo e os checkpoints de conhecimento.</p><p id="res"></p><button id="again" class="btn secondary">↻ Refazer</button> <button id="fh" class="btn primary">⌂ Página inicial</button></div></section>
+<div id="overlay" class="overlay"><div class="quiz"><div class="quizhead"><div class="ey">Checkpoint de conhecimento</div><h2>Você está acompanhando o raciocínio?</h2></div><div class="quizbody"><p id="qq"></p><div id="qo"></div><div id="qr"></div></div></div></div>
 <script>
-const FLOWS={
-fatura:{
-title:"Fatura maior que o esperado",desc:"Investigue a composição da cobrança e identifique a origem do valor.",customer:"Marcos Almeida",
-audio:"",transcript:"Olá, minha fatura veio bem mais alta este mês. Eu queria entender de onde veio essa diferença.",
-steps:[
-{type:"decision",question:"Qual deve ser sua primeira ação?",answers:[
-["Consultar o detalhamento da fatura.",1,"Correto. Primeiro precisamos identificar os componentes da cobrança."],
-["Informar imediatamente que o valor está correto.",0,"Não podemos confirmar isso sem analisar a composição da fatura."],
-["Orientar o cliente a pagar e depois questionar.",0,"Primeiro é necessário analisar a cobrança."]
-]},
-{type:"screen",name:"Fatura — visão geral",image:"",instruction:"Localize na tela o acesso ao detalhamento da fatura.",hotspot:{x:62,y:43,w:25,h:16}},
-{type:"screen",name:"Detalhamento da fatura",image:"",instruction:"Acesse a área de serviços e adicionais.",hotspot:{x:62,y:48,w:26,h:16}},
-{type:"screen",name:"Serviços e adicionais",image:"",instruction:"Consulte o histórico relacionado aos serviços cobrados.",hotspot:{x:60,y:50,w:29,h:16}},
-{type:"screen",name:"Histórico de cobranças",image:"",instruction:"Analise o histórico exibido e clique em Continuar para tomar a decisão final.",hotspot:null},
-{type:"decision",question:"Após consultar o histórico, qual é a melhor orientação?",answers:[
-["Explicar a origem da cobrança e orientar conforme o procedimento.",1,"Perfeito. A orientação deve ser baseada no que foi identificado no sistema."],
-["Dizer apenas que o sistema calculou automaticamente.",0,"Isso não esclarece a origem da cobrança."],
-["Encerrar a chamada sem explicar os itens.",0,"O objetivo é esclarecer a fatura ao cliente."]
-]}
-]},
-servico:{
-title:"Serviço adicional",desc:"Valide a origem de um serviço adicional apresentado na fatura.",customer:"Marcos Almeida",
-audio:"",transcript:"Apareceu um serviço adicional na minha fatura e eu não sei de onde veio.",
-steps:[
-{type:"decision",question:"Qual consulta deve ser feita primeiro?",answers:[
-["Abrir o detalhamento da fatura.",1,"Correto. O detalhamento mostra a composição da cobrança."],
-["Cancelar imediatamente o serviço.",0,"Antes é necessário confirmar a origem do serviço."],
-["Ignorar a cobrança.",0,"A cobrança precisa ser analisada."]
-]},
-{type:"screen",name:"Fatura — visão geral",image:"",instruction:"Abra o detalhamento da fatura.",hotspot:{x:62,y:43,w:25,h:16}},
-{type:"screen",name:"Detalhamento",image:"",instruction:"Acesse os serviços adicionais.",hotspot:{x:62,y:48,w:26,h:16}},
-{type:"screen",name:"Serviços adicionais",image:"",instruction:"Analise o serviço e clique em Continuar para seguir.",hotspot:null},
-{type:"decision",question:"Como orientar o cliente?",answers:[
-["Explicar o serviço identificado e seguir o procedimento aplicável.",1,"Perfeito!"],
-["Informar que toda cobrança adicional é obrigatória.",0,"Isso não pode ser afirmado sem análise."],
-["Encerrar sem esclarecer.",0,"O cliente precisa receber a orientação adequada."]
-]}
-]},
-juros:{
-title:"Juros e encargos",desc:"Analise uma cobrança de juros e encargos.",customer:"Marcos Almeida",
-audio:"",transcript:"Quero entender por que foram incluídos juros e encargos nessa fatura.",
-steps:[
-{type:"decision",question:"O que deve ser consultado?",answers:[
-["O detalhamento e o histórico da cobrança.",1,"Correto. É necessário verificar a origem dos encargos."],
-["Apenas o valor total.",0,"O total não explica a origem dos encargos."],
-["Informar que os juros são sempre indevidos.",0,"Isso não pode ser concluído sem consulta."]
-]},
-{type:"screen",name:"Fatura — visão geral",image:"",instruction:"Abra o detalhamento da cobrança.",hotspot:{x:62,y:43,w:25,h:16}},
-{type:"screen",name:"Detalhamento de encargos",image:"",instruction:"Consulte os encargos e avance para o histórico.",hotspot:{x:62,y:48,w:26,h:16}},
-{type:"screen",name:"Histórico",image:"",instruction:"Analise o histórico e clique em Continuar para tomar a decisão final.",hotspot:null},
-{type:"decision",question:"Qual é a orientação correta?",answers:[
-["Explicar a origem dos encargos e orientar conforme o procedimento.",1,"Perfeito!"],
-["Remover os encargos sem consultar o procedimento.",0,"A alteração depende das regras aplicáveis."],
-["Dizer que não há como consultar.",0,"O sistema disponibiliza as informações necessárias."]
-]}
-]}
+const IMG={"fatura": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+RmF0dXJhIGRvIGNsaWVudGU8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjE5MCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5WYWxvciBkYSBmYXR1cmE8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIyMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgMjg3LDQzPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIyNjgiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyOTMiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+VmVuY2ltZW50bzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjMxNCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij4xMC8xMC8yMDI2PC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+U3RhdHVzPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMzkyIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkVtIGFiZXJ0bzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkRldGFsaGFtZW50bzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjQ3MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5Db25zdWx0ZSBvcyBpdGVucyBxdWUgY29tcMO1ZW0gbyB2YWxvcjwvdGV4dD48L3N2Zz4=", "detalhe": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+RGV0YWxoYW1lbnRvIGRhIGZhdHVyYTwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMTkwIiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjE1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPlBsYW5vIGNvbnRyYXRhZG88L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIyMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgMTE5LDkwPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIyNjgiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyOTMiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+U2VydmnDp29zIGFkaWNpb25haXM8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIzMTQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgODksOTA8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjM0NiIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjM3MSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5Db25zdW1vIC8gZXhjZWRlbnRlczwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjM5MiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5SJCA0Nyw2MzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkVuY2FyZ29zPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iNDcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPlIkIDMwLDAwPC90ZXh0Pjwvc3ZnPg==", "servicos": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+U2VydmnDp29zIGFkaWNpb25haXM8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjE5MCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5QYWNvdGUgYWRpY2lvbmFsPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMjM2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkF0aXZvIOKAlCBSJCA4OSw5MDwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMjY4IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjkzIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkRhdGEgZGUgY29udHJhdGHDp8OjbzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjMxNCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij4xNS8wOS8yMDI2PC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+T3JpZ2VtPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMzkyIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkNvbnRyYXRhw6fDo28gZGlnaXRhbDwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkhpc3TDs3JpY288L3RleHQ+PHRleHQgeD0iMTA1IiB5PSI0NzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+VmVyIGV2ZW50b3MgcmVsYWNpb25hZG9zPC90ZXh0Pjwvc3ZnPg==", "historico": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+SGlzdMOzcmljbyBkZSBjb2JyYW7Dp2FzPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIxOTAiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyMTUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+MTUvMDkvMjAyNjwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjIzNiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5TZXJ2acOnbyBhZGljaW9uYWwgY29udHJhdGFkbzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMjY4IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjkzIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPjE4LzA5LzIwMjY8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIzMTQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+U2VydmnDp28gZGlzcG9uaWJpbGl6YWRvPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+MDEvMTAvMjAyNjwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjM5MiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5QcmltZWlyYSBjb2JyYW7Dp2E8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjQyNCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjQ0OSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj4xMC8xMC8yMDI2PC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iNDcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPlZlbmNpbWVudG8gZGEgZmF0dXJhPC90ZXh0Pjwvc3ZnPg=="};
+const DATA={
+fatura:{title:"Fatura maior que o esperado",desc:"Investigue a composição da cobrança e identifique a origem do valor.",customer:"Marcos Almeida",audio:"",opening:"Olá, minha fatura veio bem mais alta este mês. Eu queria entender de onde veio essa diferença.",steps:[
+{type:"decision",q:"Qual é a melhor primeira ação?",a:[["Consultar o detalhamento da fatura.",1,"É preciso entender a composição da cobrança antes de orientar."],["Dizer que o valor está correto.",0,"Ainda não há informação suficiente."],["Orientar o cliente a pagar primeiro.",0,"Primeiro devemos analisar a cobrança."]]},
+{type:"screen",key:"fatura",name:"Fatura — visão geral",instruction:"Localize o acesso ao detalhamento da fatura.",hot:[61,50,27,15]},
+{type:"screen",key:"detalhe",name:"Detalhamento da fatura",instruction:"Acesse a área de serviços e adicionais.",hot:[61,50,27,15]},
+{type:"screen",key:"servicos",name:"Serviços adicionais",instruction:"Consulte o histórico relacionado ao serviço.",hot:[61,50,27,15]},
+{type:"screen",key:"historico",name:"Histórico de cobranças",instruction:"Analise o histórico e clique em Continuar.",hot:null},
+{type:"decision",q:"Qual orientação demonstra domínio do procedimento?",a:[["Explicar a origem da cobrança e orientar conforme o procedimento.",1,"A orientação conecta a evidência encontrada ao procedimento."],["Dizer apenas que o sistema calculou automaticamente.",0,"Isso não esclarece a origem."],["Encerrar sem explicar os itens.",0,"O objetivo é esclarecer a cobrança."]]}],
+quiz:{q:"O que o histórico permite confirmar neste cenário?",a:[["Quando o serviço foi contratado e quando passou a ser cobrado.",1],["Apenas o nome do cliente.",0],["Somente o valor total.",0],["A senha de acesso do cliente.",0]]}},
+servico:{title:"Serviço adicional",desc:"Valide a origem de um serviço apresentado na fatura.",customer:"Marcos Almeida",audio:"",opening:"Apareceu um serviço adicional na minha fatura e eu não sei de onde veio.",steps:[
+{type:"decision",q:"Qual consulta deve ser feita primeiro?",a:[["Abrir o detalhamento da fatura.",1,"O detalhamento mostra a composição."],["Cancelar imediatamente o serviço.",0,"Antes é necessário confirmar a origem."],["Ignorar a cobrança.",0,"A cobrança precisa ser analisada."]]},
+{type:"screen",key:"fatura",name:"Fatura — visão geral",instruction:"Abra o detalhamento.",hot:[61,50,27,15]},
+{type:"screen",key:"detalhe",name:"Detalhamento",instruction:"Acesse os serviços adicionais.",hot:[61,50,27,15]},
+{type:"screen",key:"servicos",name:"Serviços adicionais",instruction:"Analise o serviço e clique em Continuar.",hot:null},
+{type:"decision",q:"Como orientar o cliente?",a:[["Explicar o serviço identificado e seguir o procedimento.",1,"Perfeito."],["Informar que toda cobrança adicional é obrigatória.",0,"Isso não pode ser afirmado sem análise."],["Encerrar sem esclarecer.",0,"O cliente precisa de orientação."]]}],
+quiz:{q:"Qual evidência é mais relevante para confirmar a origem do serviço?",a:[["Data e origem da contratação.",1],["Somente o valor total.",0],["A cor da tela.",0],["O nome do navegador.",0]]}},
+juros:{title:"Juros e encargos",desc:"Analise uma cobrança de juros e encargos.",customer:"Marcos Almeida",audio:"",opening:"Quero entender por que foram incluídos juros e encargos nessa fatura.",steps:[
+{type:"decision",q:"O que deve ser consultado?",a:[["O detalhamento e o histórico da cobrança.",1,"É necessário verificar a origem."],["Apenas o valor total.",0,"O total não explica a origem."],["Informar que os juros são sempre indevidos.",0,"Isso não pode ser concluído sem consulta."]]},
+{type:"screen",key:"fatura",name:"Fatura — visão geral",instruction:"Abra o detalhamento.",hot:[61,50,27,15]},
+{type:"screen",key:"detalhe",name:"Detalhamento de encargos",instruction:"Consulte os encargos e avance.",hot:[61,50,27,15]},
+{type:"screen",key:"historico",name:"Histórico",instruction:"Analise o histórico e clique em Continuar.",hot:null},
+{type:"decision",q:"Qual é a orientação correta?",a:[["Explicar a origem dos encargos e orientar conforme o procedimento.",1,"Perfeito."],["Remover os encargos sem consultar o procedimento.",0,"A alteração depende das regras."],["Dizer que não há como consultar.",0,"O sistema disponibiliza informações."]]}],
+quiz:{q:"Qual informação do histórico ajuda a contextualizar os encargos?",a:[["Os eventos e datas relacionados à cobrança.",1],["Somente o nome do cliente.",0],["A resolução do monitor.",0],["A cor dos botões.",0]]}}
 };
-
-let flow=null,index=0,score=0;
-
-function showHome(){document.getElementById("home").style.display="block";document.getElementById("simulation").style.display="none";document.getElementById("finish").style.display="none"}
-function showSimulation(){document.getElementById("home").style.display="none";document.getElementById("simulation").style.display="block";document.getElementById("finish").style.display="none"}
-function showFinish(){document.getElementById("home").style.display="none";document.getElementById("simulation").style.display="none";document.getElementById("finish").style.display="block"}
-
-function start(id){
- flow=FLOWS[id];index=0;score=0;
- document.getElementById("flowTitle").textContent=flow.title;
- document.getElementById("flowDesc").textContent=flow.desc;
- document.getElementById("customer").textContent=flow.customer;
- document.getElementById("transcript").textContent=flow.transcript;
- const audio=document.getElementById("audio"),no=document.getElementById("noAudio");
- if(flow.audio){audio.src=flow.audio;audio.style.display="block";no.style.display="none"}else{audio.removeAttribute("src");audio.style.display="none";no.style.display="block"}
- document.getElementById("chat").innerHTML='<div class="bubble">A chamada foi iniciada. Analise o relato do cliente e escolha a próxima ação.</div>';
- showSimulation();render();
-}
-
-function render(){
- const total=flow.steps.length;
- const s=flow.steps[index];
- document.getElementById("stepIndicator").textContent="Etapa "+(index+1)+" de "+total;
- document.getElementById("progressBar").style.width=((index+1)/total*100)+"%";
- if(s.type==="decision")decision(s);else system(s);
-}
-
-function decision(s){
- document.getElementById("screenLabel").textContent="Tomada de decisão";
- document.getElementById("screenStage").className="screen-stage empty";
- document.getElementById("screenStage").innerHTML='<div class="empty-content"><div class="empty-icon">🧭</div><h3>Decisão do procedimento</h3><p>A tomada de decisão está no painel à esquerda. Escolha uma alternativa para continuar.</p></div>';
- const q=document.getElementById("question");
- q.innerHTML='<div class="eyebrow2">Tomada de decisão</div><h3>'+s.question+'</h3><div id="opts"></div>';
- s.answers.forEach((a,i)=>{const b=document.createElement("button");b.className="option";b.textContent=a[0];b.onclick=()=>answer(i);document.getElementById("opts").appendChild(b)});
-}
-
-function answer(i){
- const s=flow.steps[index],a=s.answers[i],q=document.getElementById("question");
- q.querySelectorAll(".feedback,.next").forEach(e=>e.remove());
- q.querySelectorAll(".option").forEach((b,j)=>{b.classList.remove("bad","good");if(j===i)b.classList.add(a[1]?"good":"bad")});
- const f=document.createElement("div");f.className="feedback "+(a[1]?"good":"bad");f.innerHTML="<b>"+(a[1]?"✓ Correto":"⚠ Ainda não")+"</b><br>"+a[2];q.appendChild(f);
- if(a[1]){
-  score++;
-  q.querySelectorAll(".option").forEach(b=>b.disabled=true);
-  const n=document.createElement("button");n.className="btn btn-primary btn-wide next";n.textContent=index===flow.steps.length-1?"Finalizar simulação":"Continuar →";n.onclick=()=>{index++;index<flow.steps.length?render():finish()};q.appendChild(n)
- }
-}
-
-function system(s){
- document.getElementById("screenLabel").textContent=s.name;
- const stage=document.getElementById("screenStage");
- stage.className="screen-stage";
- stage.innerHTML="";
- if(s.image){
-  const box=document.createElement("div");box.className="real-screen";
-  const img=document.createElement("img");img.src=s.image;img.alt=s.name;box.appendChild(img);
-  if(s.hotspot) addHotspot(box,s.hotspot);
-  stage.appendChild(box);
- }else{
-  stage.className="screen-stage empty";
-  stage.innerHTML='<div class="empty-content"><div class="empty-icon">🖥️</div><h3>Print real do sistema</h3><p>Aqui entrará o print da tela real do sistema. Na versão final, a imagem ocupa esta área e o hotspot ficará sobre o botão/área correta.</p><label class="upload-label">Selecionar print<input type="file" accept="image/*" onchange="loadScreenImage(event)"></label></div>';
- }
- const q=document.getElementById("question");
- q.innerHTML='<div class="eyebrow2">Navegação no sistema</div><h3>'+s.instruction+'</h3>';
- if(s.hotspot && !s.image){
-  const f=document.createElement("div");f.className="feedback";f.style.background="#f5f6f9";f.style.color="#5f697b";f.textContent="O hotspot está aguardando o print real. No protótipo, você pode selecionar uma imagem acima para visualizar a interação.";q.appendChild(f);
- }else if(s.hotspot && s.image){
-  const f=document.createElement("div");f.className="feedback";f.style.background="#f5f6f9";f.style.color="#5f697b";f.textContent="Clique na área correta da tela.";q.appendChild(f);
- }else{
-  const n=document.createElement("button");n.className="btn btn-primary btn-wide next";n.textContent="Continuar →";n.onclick=()=>{index++;index<flow.steps.length?render():finish()};q.appendChild(n);
- }
-}
-
-function addHotspot(box,h){
- const b=document.createElement("button");b.className="hotspot";b.style.left=h.x+"%";b.style.top=h.y+"%";b.style.width=h.w+"%";b.style.height=h.h+"%";b.title="Área de interação";b.onclick=()=>{index++;index<flow.steps.length?render():finish()};box.appendChild(b)
-}
-function loadScreenImage(e){
- const file=e.target.files[0];if(!file)return;
- const url=URL.createObjectURL(file);
- const s=flow.steps[index];s.image=url;render();
-}
-function finish(){document.getElementById("result").textContent="Você concluiu "+flow.title+" com "+score+" decisão(ões) correta(s).";showFinish()}
-function restart(){const id=Object.keys(FLOWS).find(k=>FLOWS[k]===flow);start(id||"fatura")}
-
-document.querySelectorAll(".start").forEach(b=>b.addEventListener("click",()=>start(b.dataset.flow)));
-document.getElementById("backHome").addEventListener("click",showHome);
-document.getElementById("homeFinish").addEventListener("click",showHome);
-document.getElementById("again").addEventListener("click",restart);
-</script>
-</body>
-</html>
+let cur=null,idx=0,score=0,checked=false;
+function home(){homeEl(true);document.getElementById("overlay").style.display="none"}
+function homeEl(x){document.getElementById("home").style.display=x?"block":"none";document.getElementById("sim").style.display=x?"none":"block";document.getElementById("finish").style.display="none"}
+function start(id){cur=DATA[id];idx=0;score=0;checked=false;document.getElementById("ft").textContent=cur.title;document.getElementById("fd").textContent=cur.desc;document.getElementById("cn").textContent=cur.customer;document.getElementById("tr").textContent="";document.getElementById("bubble").textContent="";let a=document.getElementById("aud");let na=document.getElementById("na");if(cur.audio){a.src=cur.audio;a.style.display="block";na.style.display="none"}else{a.removeAttribute("src");a.style.display="none";na.style.display="block"}homeEl(false);type(cur.opening);render()}
+function type(t){let i=0,tr=document.getElementById("tr"),b=document.getElementById("bubble");b.innerHTML='<span class="typing">digitando...</span>';let z=setInterval(()=>{if(i<t.length){i++;tr.textContent=t.slice(0,i);b.textContent=t.slice(0,i)}else clearInterval(z)},25)}
+function render(){let s=cur.steps[idx];document.getElementById("si").textContent="Etapa "+(idx+1)+" de "+cur.steps.length;document.getElementById("pb").style.width=((idx+1)/cur.steps.length*100)+"%";s.type==="decision"?decision(s):system(s)}
+function decision(s){document.getElementById("sl").textContent="Tomada de decisão";document.getElementById("stage").innerHTML='<div style="display:grid;place-items:center;height:620px;text-align:center;color:#667184"><div><div style="font-size:48px">🧠</div><h3 style="color:#30394B">Hora de decidir</h3><p>Use o que você aprendeu na chamada e no sistema.</p></div></div>';let q=document.getElementById("q");q.innerHTML='<div class="qey">Decisão</div><h3>'+s.q+'</h3><div id="opts"></div>';s.a.forEach((a,i)=>{let b=document.createElement("button");b.className="option";b.textContent=a[0];b.onclick=()=>answer(i);document.getElementById("opts").appendChild(b)})}
+function answer(i){let s=cur.steps[idx],a=s.a[i],q=document.getElementById("q");q.querySelectorAll(".feedback,.next").forEach(e=>e.remove());q.querySelectorAll(".option").forEach((b,j)=>{b.classList.remove("bad","good");if(j===i)b.classList.add(a[1]?"good":"bad")});let f=document.createElement("div");f.className="feedback "+(a[1]?"goodfb":"badfb");f.innerHTML="<b>"+(a[1]?"✓ Correto":"⚠ Tente novamente")+"</b><br>"+a[2];q.appendChild(f);if(a[1]){score++;q.querySelectorAll(".option").forEach(b=>b.disabled=true);let n=document.createElement("button");n.className="btn primary wide next";n.textContent="Continuar →";n.onclick=()=>{idx++;next()};q.appendChild(n)}}
+function next(){if(!checked&&idx>=4){checked=true;quiz();return}if(idx<cur.steps.length)render();else finish()}
+function system(s){document.getElementById("sl").textContent=s.name;let st=document.getElementById("stage");st.innerHTML='<img src="'+IMG[s.key]+'" alt="'+s.name+'">';let q=document.getElementById("q");q.innerHTML='<div class="qey">Navegação no sistema</div><h3>'+s.instruction+'</h3>';if(s.hot){let h=document.createElement("button");h.className="hot";h.style.left=s.hot[0]+"%";h.style.top=s.hot[1]+"%";h.style.width=s.hot[2]+"%";h.style.height=s.hot[3]+"%";h.onclick=()=>{idx++;next()};st.appendChild(h)}else{let n=document.createElement("button");n.className="btn primary wide";n.textContent="Continuar →";n.onclick=()=>{idx++;next()};q.appendChild(n)}}
+function quiz(){let z=cur.quiz;document.getElementById("qq").textContent=z.q;let box=document.getElementById("qo");box.innerHTML="";document.getElementById("qr").innerHTML="";z.a.forEach((a,i)=>{let b=document.createElement("button");b.className="quizopt";b.textContent=a[0];b.onclick=()=>{if(a[1]){document.getElementById("qr").innerHTML='<div class="feedback goodfb">✓ Excelente! Você conectou o que consultou no sistema com o procedimento.</div><button id="qc" class="btn primary wide" style="margin-top:10px">Continuar a simulação →</button>';document.getElementById("qc").onclick=()=>{document.getElementById("overlay").style.display="none";idx++;render()}}else{document.getElementById("qr").innerHTML='<div class="feedback badfb">⚠ Ainda não. Pense no que a tela acabou de mostrar e tente novamente.</div>'} };box.appendChild(b)})});document.getElementById("overlay").style.display="flex"}
+function finish(){document.getElementById("sim").style.display="none";document.getElementById("finish").style.display="block";document.getElementById("res").textContent="Decisões corretas: "+score}
+function restart(){start(Object.keys(DATA).find(k=>DATA[k]===cur)||"fatura")}
+document.querySelectorAll(".start").forEach(b=>b.onclick=()=>start(b.dataset.id));document.getElementById("back").onclick=home;document.getElementById("fh").onclick=home;document.getElementById("again").onclick=restart;
+</script></body></html>
