@@ -22,8 +22,8 @@
 <section id="finish"><div class="finishbox"><div class="check">✓</div><h1>Simulação concluída</h1><p>Parabéns! Você concluiu o fluxo e os checkpoints de conhecimento.</p><p id="res"></p><button id="again" class="btn secondary">↻ Refazer</button> <button id="fh" class="btn primary">⌂ Página inicial</button></div></section>
 <div id="overlay" class="overlay"><div class="quiz"><div class="quizhead"><div class="ey">Checkpoint de conhecimento</div><h2>Você está acompanhando o raciocínio?</h2></div><div class="quizbody"><p id="qq"></p><div id="qo"></div><div id="qr"></div></div></div></div>
 <script>
-const IMG={"fatura": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+RmF0dXJhIGRvIGNsaWVudGU8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjE5MCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5WYWxvciBkYSBmYXR1cmE8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIyMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgMjg3LDQzPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIyNjgiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyOTMiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+VmVuY2ltZW50bzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjMxNCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij4xMC8xMC8yMDI2PC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+U3RhdHVzPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMzkyIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkVtIGFiZXJ0bzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkRldGFsaGFtZW50bzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjQ3MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5Db25zdWx0ZSBvcyBpdGVucyBxdWUgY29tcMO1ZW0gbyB2YWxvcjwvdGV4dD48L3N2Zz4=", "detalhe": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+RGV0YWxoYW1lbnRvIGRhIGZhdHVyYTwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMTkwIiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjE1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPlBsYW5vIGNvbnRyYXRhZG88L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIyMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgMTE5LDkwPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIyNjgiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyOTMiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+U2VydmnDp29zIGFkaWNpb25haXM8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIzMTQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgODksOTA8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjM0NiIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjM3MSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5Db25zdW1vIC8gZXhjZWRlbnRlczwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjM5MiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5SJCA0Nyw2MzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkVuY2FyZ29zPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iNDcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPlIkIDMwLDAwPC90ZXh0Pjwvc3ZnPg==", "servicos": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+U2VydmnDp29zIGFkaWNpb25haXM8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjE5MCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5QYWNvdGUgYWRpY2lvbmFsPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMjM2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkF0aXZvIOKAlCBSJCA4OSw5MDwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMjY4IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjkzIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkRhdGEgZGUgY29udHJhdGHDp8OjbzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjMxNCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij4xNS8wOS8yMDI2PC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+T3JpZ2VtPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMzkyIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkNvbnRyYXRhw6fDo28gZGlnaXRhbDwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkhpc3TDs3JpY288L3RleHQ+PHRleHQgeD0iMTA1IiB5PSI0NzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+VmVyIGV2ZW50b3MgcmVsYWNpb25hZG9zPC90ZXh0Pjwvc3ZnPg==", "historico": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+SGlzdMOzcmljbyBkZSBjb2JyYW7Dp2FzPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIxOTAiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyMTUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+MTUvMDkvMjAyNjwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjIzNiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5TZXJ2acOnbyBhZGljaW9uYWwgY29udHJhdGFkbzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMjY4IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjkzIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPjE4LzA5LzIwMjY8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIzMTQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+U2VydmnDp28gZGlzcG9uaWJpbGl6YWRvPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+MDEvMTAvMjAyNjwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjM5MiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5QcmltZWlyYSBjb2JyYW7Dp2E8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjQyNCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjQ0OSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj4xMC8xMC8yMDI2PC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iNDcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPlZlbmNpbWVudG8gZGEgZmF0dXJhPC90ZXh0Pjwvc3ZnPg=="};
-const DATA={
+var IMG={"fatura": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+RmF0dXJhIGRvIGNsaWVudGU8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjE5MCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5WYWxvciBkYSBmYXR1cmE8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIyMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgMjg3LDQzPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIyNjgiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyOTMiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+VmVuY2ltZW50bzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjMxNCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij4xMC8xMC8yMDI2PC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+U3RhdHVzPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMzkyIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkVtIGFiZXJ0bzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkRldGFsaGFtZW50bzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjQ3MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5Db25zdWx0ZSBvcyBpdGVucyBxdWUgY29tcMO1ZW0gbyB2YWxvcjwvdGV4dD48L3N2Zz4=", "detalhe": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+RGV0YWxoYW1lbnRvIGRhIGZhdHVyYTwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMTkwIiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjE1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPlBsYW5vIGNvbnRyYXRhZG88L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIyMzYiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgMTE5LDkwPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIyNjgiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyOTMiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+U2VydmnDp29zIGFkaWNpb25haXM8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIzMTQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+UiQgODksOTA8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjM0NiIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjM3MSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5Db25zdW1vIC8gZXhjZWRlbnRlczwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjM5MiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5SJCA0Nyw2MzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkVuY2FyZ29zPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iNDcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPlIkIDMwLDAwPC90ZXh0Pjwvc3ZnPg==", "servicos": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+U2VydmnDp29zIGFkaWNpb25haXM8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjE5MCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjIxNSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj5QYWNvdGUgYWRpY2lvbmFsPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMjM2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkF0aXZvIOKAlCBSJCA4OSw5MDwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMjY4IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjkzIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkRhdGEgZGUgY29udHJhdGHDp8OjbzwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjMxNCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij4xNS8wOS8yMDI2PC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+T3JpZ2VtPC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iMzkyIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPkNvbnRyYXRhw6fDo28gZGlnaXRhbDwvdGV4dD48cmVjdCB4PSI4MCIgeT0iNDI0IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iNDQ5IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPkhpc3TDs3JpY288L3RleHQ+PHRleHQgeD0iMTA1IiB5PSI0NzAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+VmVyIGV2ZW50b3MgcmVsYWNpb25hZG9zPC90ZXh0Pjwvc3ZnPg==", "historico": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDgwIDYyMCI+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjIwIiBmaWxsPSIjRjBGMkY2Ii8+PHJlY3Qgd2lkdGg9IjEwODAiIGhlaWdodD0iNjQiIGZpbGw9IiMxODIyMzUiLz48Y2lyY2xlIGN4PSIzNSIgY3k9IjMyIiByPSIxMCIgZmlsbD0iIzVCMkNDOSIvPjx0ZXh0IHg9IjU4IiB5PSIzOSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSJ3aGl0ZSI+Q2VudHJhbCBkZSBBdGVuZGltZW50bzwvdGV4dD48cmVjdCB5PSI2NCIgd2lkdGg9IjEwODAiIGhlaWdodD0iNTIiIGZpbGw9IndoaXRlIi8+PHRleHQgeD0iODAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1QjJDQzkiPkZBVFVSQTwvdGV4dD48dGV4dCB4PSIxOTAiIHk9Ijk2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2OTczODYiPkNMSUVOVEU8L3RleHQ+PHRleHQgeD0iMjkwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5TRVJWScOHT1M8L3RleHQ+PHRleHQgeD0iNDEwIiB5PSI5NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjk3Mzg2Ij5ISVNUw5NSSUNPPC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzE3MjAzMyI+SGlzdMOzcmljbyBkZSBjb2JyYW7Dp2FzPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIxOTAiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIyMTUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+MTUvMDkvMjAyNjwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjIzNiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5TZXJ2acOnbyBhZGljaW9uYWwgY29udHJhdGFkbzwvdGV4dD48cmVjdCB4PSI4MCIgeT0iMjY4IiB3aWR0aD0iOTIwIiBoZWlnaHQ9IjYyIiByeD0iMTAiIGZpbGw9IiNGN0Y4RkIiIHN0cm9rZT0iI0UxRTVFQyIvPjx0ZXh0IHg9IjEwNSIgeT0iMjkzIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMDM5NEIiPjE4LzA5LzIwMjY8L3RleHQ+PHRleHQgeD0iMTA1IiB5PSIzMTQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzY4NzM4NiI+U2VydmnDp28gZGlzcG9uaWJpbGl6YWRvPC90ZXh0PjxyZWN0IHg9IjgwIiB5PSIzNDYiIHdpZHRoPSI5MjAiIGhlaWdodD0iNjIiIHJ4PSIxMCIgZmlsbD0iI0Y3RjhGQiIgc3Ryb2tlPSIjRTFFNUVDIi8+PHRleHQgeD0iMTA1IiB5PSIzNzEiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNSIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzMwMzk0QiI+MDEvMTAvMjAyNjwvdGV4dD48dGV4dCB4PSIxMDUiIHk9IjM5MiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEzIiBmaWxsPSIjNjg3Mzg2Ij5QcmltZWlyYSBjb2JyYW7Dp2E8L3RleHQ+PHJlY3QgeD0iODAiIHk9IjQyNCIgd2lkdGg9IjkyMCIgaGVpZ2h0PSI2MiIgcng9IjEwIiBmaWxsPSIjRjdGOEZCIiBzdHJva2U9IiNFMUU1RUMiLz48dGV4dCB4PSIxMDUiIHk9IjQ0OSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzAzOTRCIj4xMC8xMC8yMDI2PC90ZXh0Pjx0ZXh0IHg9IjEwNSIgeT0iNDcwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM2ODczODYiPlZlbmNpbWVudG8gZGEgZmF0dXJhPC90ZXh0Pjwvc3ZnPg=="};
+var DATA={
 fatura:{title:"Fatura maior que o esperado",desc:"Investigue a composição da cobrança e identifique a origem do valor.",customer:"Marcos Almeida",audio:"",opening:"Olá, minha fatura veio bem mais alta este mês. Eu queria entender de onde veio essa diferença.",steps:[
 {type:"decision",q:"Qual é a melhor primeira ação?",a:[["Consultar o detalhamento da fatura.",1,"É preciso entender a composição da cobrança antes de orientar."],["Dizer que o valor está correto.",0,"Ainda não há informação suficiente."],["Orientar o cliente a pagar primeiro.",0,"Primeiro devemos analisar a cobrança."]]},
 {type:"screen",key:"fatura",name:"Fatura — visão geral",instruction:"Localize o acesso ao detalhamento da fatura.",hot:[61,50,27,15]},
@@ -47,76 +47,216 @@ juros:{title:"Juros e encargos",desc:"Analise uma cobrança de juros e encargos.
 {type:"decision",q:"Qual é a orientação correta?",a:[["Explicar a origem dos encargos e orientar conforme o procedimento.",1,"Perfeito."],["Remover os encargos sem consultar o procedimento.",0,"A alteração depende das regras."],["Dizer que não há como consultar.",0,"O sistema disponibiliza informações."]]}],
 quiz:{q:"Qual informação do histórico ajuda a contextualizar os encargos?",a:[["Os eventos e datas relacionados à cobrança.",1],["Somente o nome do cliente.",0],["A resolução do monitor.",0],["A cor dos botões.",0]]}}
 };
-let cur=null,idx=0,score=0,checked=false;
-function home(){homeEl(true);document.getElementById("overlay").style.display="none"}
-function homeEl(x){document.getElementById("home").style.display=x?"block":"none";document.getElementById("sim").style.display=x?"none":"block";document.getElementById("finish").style.display="none"}
-function start(id){cur=DATA[id];idx=0;score=0;checked=false;document.getElementById("ft").textContent=cur.title;document.getElementById("fd").textContent=cur.desc;document.getElementById("cn").textContent=cur.customer;document.getElementById("tr").textContent="";document.getElementById("bubble").textContent="";let a=document.getElementById("aud");let na=document.getElementById("na");if(cur.audio){a.src=cur.audio;a.style.display="block";na.style.display="none"}else{a.removeAttribute("src");a.style.display="none";na.style.display="block"}homeEl(false);type(cur.opening);render()}
-function type(t){let i=0,tr=document.getElementById("tr"),b=document.getElementById("bubble");b.innerHTML='<span class="typing">digitando...</span>';let z=setInterval(()=>{if(i<t.length){i++;tr.textContent=t.slice(0,i);b.textContent=t.slice(0,i)}else clearInterval(z)},25)}
-function render(){let s=cur.steps[idx];document.getElementById("si").textContent="Etapa "+(idx+1)+" de "+cur.steps.length;document.getElementById("pb").style.width=((idx+1)/cur.steps.length*100)+"%";s.type==="decision"?decision(s):system(s)}
-function decision(s){document.getElementById("sl").textContent="Tomada de decisão";document.getElementById("stage").innerHTML='<div style="display:grid;place-items:center;height:620px;text-align:center;color:#667184"><div><div style="font-size:48px">🧠</div><h3 style="color:#30394B">Hora de decidir</h3><p>Use o que você aprendeu na chamada e no sistema.</p></div></div>';let q=document.getElementById("q");q.innerHTML='<div class="qey">Decisão</div><h3>'+s.q+'</h3><div id="opts"></div>';s.a.forEach((a,i)=>{let b=document.createElement("button");b.className="option";b.textContent=a[0];b.onclick=()=>answer(i);document.getElementById("opts").appendChild(b)})}
-function answer(i){let s=cur.steps[idx],a=s.a[i],q=document.getElementById("q");q.querySelectorAll(".feedback,.next").forEach(e=>e.remove());q.querySelectorAll(".option").forEach((b,j)=>{b.classList.remove("bad","good");if(j===i)b.classList.add(a[1]?"good":"bad")});let f=document.createElement("div");f.className="feedback "+(a[1]?"goodfb":"badfb");f.innerHTML="<b>"+(a[1]?"✓ Correto":"⚠ Tente novamente")+"</b><br>"+a[2];q.appendChild(f);if(a[1]){score++;q.querySelectorAll(".option").forEach(b=>b.disabled=true);let n=document.createElement("button");n.className="btn primary wide next";n.textContent="Continuar →";n.onclick=()=>{idx++;next()};q.appendChild(n)}}
-function next(){if(!checked&&idx>=4){checked=true;quiz();return}if(idx<cur.steps.length)render();else finish()}
-function system(s){document.getElementById("sl").textContent=s.name;let st=document.getElementById("stage");st.innerHTML='<img src="'+IMG[s.key]+'" alt="'+s.name+'">';let q=document.getElementById("q");q.innerHTML='<div class="qey">Navegação no sistema</div><h3>'+s.instruction+'</h3>';if(s.hot){let h=document.createElement("button");h.className="hot";h.style.left=s.hot[0]+"%";h.style.top=s.hot[1]+"%";h.style.width=s.hot[2]+"%";h.style.height=s.hot[3]+"%";h.onclick=()=>{idx++;next()};st.appendChild(h)}else{let n=document.createElement("button");n.className="btn primary wide";n.textContent="Continuar →";n.onclick=()=>{idx++;next()};q.appendChild(n)}}
-function quiz(){
-  const z = cur.quiz;
-  const question = document.getElementById("qq");
-  const box = document.getElementById("qo");
-  const result = document.getElementById("qr");
-  const overlay = document.getElementById("overlay");
+var cur = null;
+var idx = 0;
+var score = 0;
+var checked = false;
 
-  question.textContent = z.q;
-  box.innerHTML = "";
+function home(){
+  homeEl(true);
+  document.getElementById("overlay").style.display = "none";
+}
+
+function homeEl(showHome){
+  document.getElementById("home").style.display = showHome ? "block" : "none";
+  document.getElementById("sim").style.display = showHome ? "none" : "block";
+  document.getElementById("finish").style.display = "none";
+}
+
+function start(id){
+  cur = DATA[id];
+  idx = 0;
+  score = 0;
+  checked = false;
+  document.getElementById("ft").textContent = cur.title;
+  document.getElementById("fd").textContent = cur.desc;
+  document.getElementById("cn").textContent = cur.customer;
+  document.getElementById("tr").textContent = "";
+  document.getElementById("bubble").textContent = "";
+  var audio = document.getElementById("aud");
+  var noAudio = document.getElementById("na");
+  if(cur.audio){
+    audio.src = cur.audio;
+    audio.style.display = "block";
+    noAudio.style.display = "none";
+  }else{
+    audio.removeAttribute("src");
+    audio.style.display = "none";
+    noAudio.style.display = "block";
+  }
+  homeEl(false);
+  typeText(cur.opening);
+  render();
+}
+
+function typeText(text){
+  var i = 0;
+  var transcript = document.getElementById("tr");
+  var bubble = document.getElementById("bubble");
+  bubble.innerHTML = '<span class="typing">digitando...</span>';
+  var timer = setInterval(function(){
+    if(i < text.length){
+      i++;
+      transcript.textContent = text.slice(0,i);
+      bubble.textContent = text.slice(0,i);
+    }else{
+      clearInterval(timer);
+    }
+  },25);
+}
+
+function render(){
+  var step = cur.steps[idx];
+  document.getElementById("si").textContent = "Etapa " + (idx+1) + " de " + cur.steps.length;
+  document.getElementById("pb").style.width = (((idx+1)/cur.steps.length)*100) + "%";
+  if(step.type === "decision"){
+    decision(step);
+  }else{
+    system(step);
+  }
+}
+
+function decision(step){
+  document.getElementById("sl").textContent = "Tomada de decisão";
+  document.getElementById("stage").innerHTML = '<div style="display:grid;place-items:center;height:620px;text-align:center;color:#667184"><div><div style="font-size:48px">🧠</div><h3 style="color:#30394B">Hora de decidir</h3><p>Use o que você aprendeu na chamada e no sistema.</p></div></div>';
+  var question = document.getElementById("q");
+  question.innerHTML = '<div class="qey">Decisão</div><h3>' + step.q + '</h3><div id="opts"></div>';
+  var options = document.getElementById("opts");
+  step.a.forEach(function(answer, index){
+    var button = document.createElement("button");
+    button.className = "option";
+    button.textContent = answer[0];
+    button.onclick = function(){ answerQuestion(index); };
+    options.appendChild(button);
+  });
+}
+
+function answerQuestion(index){
+  var step = cur.steps[idx];
+  var answer = step.a[index];
+  var question = document.getElementById("q");
+  var old = question.querySelectorAll(".feedback,.next");
+  var j;
+  for(j=0;j<old.length;j++) old[j].remove();
+  var buttons = question.querySelectorAll(".option");
+  for(j=0;j<buttons.length;j++){
+    buttons[j].classList.remove("bad");
+    buttons[j].classList.remove("good");
+    if(j === index) buttons[j].classList.add(answer[1] ? "good" : "bad");
+  }
+  var feedback = document.createElement("div");
+  feedback.className = "feedback " + (answer[1] ? "goodfb" : "badfb");
+  feedback.innerHTML = "<b>" + (answer[1] ? "✓ Correto" : "⚠ Tente novamente") + "</b><br>" + answer[2];
+  question.appendChild(feedback);
+  if(answer[1]){
+    score++;
+    for(j=0;j<buttons.length;j++) buttons[j].disabled = true;
+    var nextButton = document.createElement("button");
+    nextButton.className = "btn primary wide next";
+    nextButton.textContent = "Continuar →";
+    nextButton.onclick = function(){ idx++; next(); };
+    question.appendChild(nextButton);
+  }
+}
+
+function next(){
+  if(!checked && idx >= 4 && cur.quiz){
+    checked = true;
+    quiz();
+    return;
+  }
+  if(idx < cur.steps.length) render();
+  else finish();
+}
+
+function system(step){
+  document.getElementById("sl").textContent = step.name;
+  var stage = document.getElementById("stage");
+  stage.innerHTML = '<img src="' + IMG[step.key] + '" alt="' + step.name + '">';
+  var question = document.getElementById("q");
+  question.innerHTML = '<div class="qey">Navegação no sistema</div><h3>' + step.instruction + '</h3>';
+  if(step.hot){
+    var hotspot = document.createElement("button");
+    hotspot.className = "hot";
+    hotspot.style.left = step.hot[0] + "%";
+    hotspot.style.top = step.hot[1] + "%";
+    hotspot.style.width = step.hot[2] + "%";
+    hotspot.style.height = step.hot[3] + "%";
+    hotspot.onclick = function(){ idx++; next(); };
+    stage.appendChild(hotspot);
+  }else{
+    var continueButton = document.createElement("button");
+    continueButton.className = "btn primary wide";
+    continueButton.textContent = "Continuar →";
+    continueButton.onclick = function(){ idx++; next(); };
+    question.appendChild(continueButton);
+  }
+}
+
+function quiz(){
+  var quizData = cur.quiz;
+  var question = document.getElementById("qq");
+  var options = document.getElementById("qo");
+  var result = document.getElementById("qr");
+  var overlay = document.getElementById("overlay");
+  question.textContent = quizData.q;
+  options.innerHTML = "";
   result.innerHTML = "";
 
-  z.a.forEach(function(answerData, index){
-    const button = document.createElement("button");
+  quizData.a.forEach(function(answer){
+    var button = document.createElement("button");
     button.className = "quizopt";
-    button.textContent = answerData[0];
-
-    button.addEventListener("click", function(){
+    button.textContent = answer[0];
+    button.onclick = function(){
       result.innerHTML = "";
-
-      if(answerData[1]){
-        const feedback = document.createElement("div");
+      if(answer[1]){
+        var feedback = document.createElement("div");
         feedback.className = "feedback goodfb";
         feedback.textContent = "✓ Excelente! Você conectou o que consultou no sistema com o procedimento.";
-
-        const continueButton = document.createElement("button");
-        continueButton.id = "qc";
+        var continueButton = document.createElement("button");
         continueButton.className = "btn primary wide";
         continueButton.style.marginTop = "10px";
         continueButton.textContent = "Continuar a simulação →";
-
-        continueButton.addEventListener("click", function(){
+        continueButton.onclick = function(){
           overlay.style.display = "none";
           idx++;
           render();
-        });
-
+        };
         result.appendChild(feedback);
         result.appendChild(continueButton);
       }else{
-        const feedback = document.createElement("div");
-        feedback.className = "feedback badfb";
-        feedback.textContent = "⚠ Ainda não. Pense no que a tela acabou de mostrar e tente novamente.";
-        result.appendChild(feedback);
+        var wrong = document.createElement("div");
+        wrong.className = "feedback badfb";
+        wrong.textContent = "⚠ Ainda não. Pense no que a tela acabou de mostrar e tente novamente.";
+        result.appendChild(wrong);
       }
-    });
-
-    box.appendChild(button);
+    };
+    options.appendChild(button);
   });
-
   overlay.style.display = "flex";
 }
-function finish(){document.getElementById("sim").style.display="none";document.getElementById("finish").style.display="block";document.getElementById("res").textContent="Decisões corretas: "+score}
-function restart(){start(Object.keys(DATA).find(k=>DATA[k]===cur)||"fatura")}
-document.querySelectorAll(".start").forEach(function(button){
-  button.addEventListener("click", function(){
-    start(button.dataset.id);
-  });
-});
 
-document.getElementById("back").addEventListener("click", home);
-document.getElementById("fh").addEventListener("click", home);
-document.getElementById("again").addEventListener("click", restart);
+function finish(){
+  document.getElementById("sim").style.display = "none";
+  document.getElementById("finish").style.display = "block";
+  document.getElementById("res").textContent = "Decisões corretas: " + score;
+}
+
+function restart(){
+  var key = "fatura";
+  for(var k in DATA){
+    if(DATA[k] === cur){ key = k; break; }
+  }
+  start(key);
+}
+
+window.addEventListener("DOMContentLoaded", function(){
+  var startButtons = document.querySelectorAll(".start");
+  for(var i=0;i<startButtons.length;i++){
+    startButtons[i].addEventListener("click", function(){ start(this.getAttribute("data-id")); });
+  }
+  document.getElementById("back").addEventListener("click", home);
+  document.getElementById("fh").addEventListener("click", home);
+  document.getElementById("again").addEventListener("click", restart);
+});
 </script></body></html>
