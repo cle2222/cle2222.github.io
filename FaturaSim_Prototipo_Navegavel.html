@@ -12,24 +12,10 @@ main{max-width:1400px;margin:auto;padding:28px}.hero{display:flex;justify-conten
 .screenbody{padding:16px;background:#f7f8fb}.real{position:relative;max-width:950px;margin:auto;background:white;border:1px solid #cfd6e1;border-radius:7px;overflow:hidden}.sysbar{height:34px;background:#273149;color:white;padding:10px;font-size:9px;font-weight:800}.sysbar span{float:right;color:#aeb8ca;font-weight:500}.sysnav{height:34px;border-bottom:1px solid #dfe4eb;padding:7px;display:flex;gap:4px}.sysnav span{font-size:8px;padding:5px 8px;color:#69758b}.sysnav .sel{background:#eeeaff;color:var(--p);border-radius:4px;font-weight:800}.content{padding:17px;min-height:300px}.crumb{font-size:8px;color:#8993a6}.title{display:flex;justify-content:space-between;margin:10px 0;font-size:13px}.data{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.field{border:1px solid var(--line);padding:8px;border-radius:6px}.field small{display:block;font-size:7px;color:#8993a6}.field b{font-size:9px}.table{margin-top:12px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.tr{display:grid;grid-template-columns:1fr 100px;padding:9px;font-size:8px;border-bottom:1px solid #e9edf2}.tr:last-child{border:0;font-weight:800}.th{background:#f2f4f8;font-weight:700}.notice{margin-top:10px;padding:9px;background:#fff4df;border:1px solid #f0dfba;border-radius:6px;font-size:8px;line-height:1.5;color:#76551d}.hot{position:absolute;border:2px dashed transparent;background:transparent;border-radius:6px}.hot:hover{border-color:var(--p);background:#5b3df51c}.instructions{margin-top:10px;background:white;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:10px;color:#59657a}.result{margin-top:15px;padding:18px}.score{font-size:30px;font-weight:900;color:var(--p)}
 @media(max-width:850px){.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.chat{order:2}}@media(max-width:600px){main{padding:14px}.hero{display:block}.cards{grid-template-columns:1fr}.prog{display:none}}
 </style>
-<style>
-#homePage input[type="file"][accept^="audio/"],
-#homePage #audioFile,
-.home-audio-upload {
-  display: none !important;
-}
-</style>
 
 
-<style id="home-no-call-recording">
-#homePage audio,
-#homePage input[type="file"][accept*="audio"],
-#homePage .audio-card,
-#homePage .call-recording,
-#homePage .transcript-card {
-  display: none !important;
-}
-</style>
+
+
 
 </head>
 <body>
@@ -37,19 +23,8 @@ main{max-width:1400px;margin:auto;padding:28px}.hero{display:flex;justify-conten
 <main>
 <section id="home"><div class="hero"><div><div class="ey">Simulador de atendimento</div><h1>Esclarecimento de Faturas</h1><p>Navegue pelas telas do sistema, investigue a cobrança e escolha a argumentação correta.</p></div><button class="btn primary" onclick="start()">▶ Testar simulação</button></div>
 
-<span>Áudio + texto</span></div>
  <div style="padding:16px">
-   <div id="audioArea" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-     <div style="border:1px solid var(--line);border-radius:10px;padding:13px;background:#fafbfc">
-       <div style="font-size:10px;color:var(--mut);font-weight:800;text-transform:uppercase;margin-bottom:7px">Gravação</div>
-       
-       <div style="font-size:9px;color:var(--mut);margin-top:7px">No cenário real, o arquivo de áudio poderá ser associado ao atendimento.</div>
-     </div>
-     <div style="border:1px solid var(--line);border-radius:10px;padding:13px;background:#fafbfc">
-       <div style="font-size:10px;color:var(--mut);font-weight:800;text-transform:uppercase;margin-bottom:7px">Transcrição da chamada</div>
-       <div id="transcript" style="font-size:10px;line-height:1.55;color:#4f5b70">“Minha fatura sempre vem perto de R$ 99,99, mas agora chegou R$ 157,43. Você consegue me explicar o que aconteceu?”</div>
-     </div>
-   </div>
+   
  </div>
 </div>
 <div style="background:#eeeaff;border:1px solid #d9d1ff;border-radius:12px;padding:12px 14px;margin-bottom:15px;font-size:10px;color:#51448c"><b>🔧 Estrutura aberta:</b> o protótipo não limita quantidade de cenários, grupos ou empresas parceiras. Novos fluxos podem ser adicionados ao cadastro de cenários.</div><div class="panel"><div class="panelhead"><b>Cenários de treinamento</b><br><span>Estrutura pronta para receber telas reais e novos fluxos.</span></div>
@@ -102,7 +77,7 @@ const SCREENS={
 fatura:["FATURAMENTO","Fatura","Cliente","Histórico","Serviços",`<div class="crumb">Faturas / Consulta atual</div><div class="title"><b>Fatura — Outubro/2026</b><span>Status: Aberta</span></div><div class="data"><div class="field"><small>Cliente</small><b>Marcos Almeida</b></div><div class="field"><small>Vencimento</small><b>15/10/2026</b></div><div class="field"><small>Total</small><b>R$ 157,43</b></div></div><div class="table"><div class="tr th"><span>Informação</span><span>Valor</span></div><div class="tr"><span>Plano</span><span>R$ 99,99</span></div><div class="tr"><span>Serviços adicionais</span><span>R$ 49,99</span></div><div class="tr"><span>Encargos</span><span>R$ 7,45</span></div></div>`],
 detalhamento:["FATURAMENTO","Fatura","Detalhamento","Cliente","Histórico",`<div class="crumb">Faturas / Detalhamento</div><div class="title"><b>Composição da cobrança</b><span>Outubro/2026</span></div><div class="table"><div class="tr th"><span>Descrição</span><span>Valor</span></div><div class="tr"><span>Plano móvel</span><span>R$ 99,99</span></div><div class="tr"><span>Seguro Celular</span><span>R$ 49,99</span></div><div class="tr"><span>Encargos</span><span>R$ 7,45</span></div></div><div class="notice">A cobrança <b>Seguro Celular</b> requer consulta complementar para identificar sua origem.</div>`],
 servicos:["SERVIÇOS","Resumo","Serviços","Histórico","Adesões",`<div class="crumb">Cliente / Serviços ativos</div><div class="title"><b>Serviços contratados</b><span>Linha final 9988</span></div><div class="table"><div class="tr th"><span>Serviço</span><span>Status</span></div><div class="tr"><span>Seguro Celular</span><span>Ativo</span></div><div class="tr"><span>Proteção Digital</span><span>Inativo</span></div></div><div class="notice">Para confirmar a origem, consulte o <b>Histórico</b>. Algumas informações não são exibidas nesta tela.</div>`],
-historico:["SERVIÇOS","Resumo","Serviços","Histórico","Adesões",`<div class="crumb">Cliente / Histórico</div><div class="title"><b>Histórico do serviço</b><span>Seguro Celular</span></div><div class="table"><div class="tr th"><span>Evento</span><span>Data</span></div><div class="tr"><span>Serviço identificado na fatura</span><span>10/2026</span></div><div class="tr"><span>Status atual</span><span>Ativo</span></div></div><div class="notice">⚠ <b>Comprovante detalhado da contratação indisponível nesta ferramenta.</b><br>Consulte o procedimento específico para confirmação/contestação.</div>`]
+historico:["SERVIÇOS","Resumo","Serviços","Histórico","Adesões",`<div class="crumb">Cliente / Histórico</div><div class="title"><b>Histórico do serviço</b><span>Seguro Celular</span></div><div class="table"><div class="tr th"><span>Evento</span><span>Data</span></div><div class="tr"><span>Serviço identificado na fatura</span><span>10/2026</span></div><div class="tr"><span>Status atual</span><span>Ativo</span></div></div><div class="notice">✓ <b>Histórico consultado.</b><br>A origem do serviço deve ser confirmada seguindo o procedimento de atendimento.</div>`]
 };
 let step=0,score=0,locked=false;
 function start(){step=0;score=0;locked=false;homeEl(false);document.getElementById("st").textContent=DATA.title;document.getElementById("sd").textContent=DATA.desc;document.getElementById("cn").textContent=DATA.client;document.getElementById("simAudio").src=document.getElementById("demoAudio").src||"";document.getElementById("simTranscript").textContent="“"+DATA.opening+"”";document.getElementById("msg").innerHTML=`<div class="bubble client">${DATA.opening}</div>`;render()}
@@ -110,23 +85,30 @@ function home(){homeEl(true)}function homeEl(h){document.getElementById("home").
 function render(){locked=false;let s=DATA.steps[step],pct=Math.round(step/DATA.steps.length*100);document.getElementById("bar").style.width=Math.max(10,pct)+"%";document.getElementById("pct").textContent=`Etapa ${step+1} de ${DATA.steps.length}`;s.type==="question"?question(s):screen(s)}
 function question(s){document.getElementById("sn").textContent="Decisão do representante";document.getElementById("screen").innerHTML=`<div class="instructions"><b>🧭 Momento de decisão</b><br>Escolha a ação adequada para continuar.</div>`;document.getElementById("q").innerHTML=`<label>Decisão</label><h4>${s.text}</h4>`+s.opts.map((o,i)=>`<button class="option" onclick="answer(${i})">${String.fromCharCode(65+i)}) ${o[0]}</button>`).join("")}
 function answer(i){
- let s=DATA.steps[step],o=s.opts[i],bs=[...document.querySelectorAll(".option")];
+ let s=DATA.steps[step],o=s.opts[i],q=document.getElementById("q");
+ // Remove any previous feedback/action controls before showing the new result.
+ q.querySelectorAll(".feedback,.answer-next").forEach(el=>el.remove());
+
+ let bs=[...q.querySelectorAll(".option")];
  bs.forEach(b=>b.classList.remove("bad","good"));
  bs[i].classList.add(o[1]?"good":"bad");
+
+ let f=document.createElement("div");
+ f.className="feedback "+(o[1]?"goodfb":"badfb");
+ f.innerHTML=o[1]
+   ? `<b>✓ Correto!</b><br>${o[2]}`
+   : `<b>⚠ Não é esse o caminho.</b><br>${o[2]}<br><br><b>Tente novamente.</b>`;
+ q.appendChild(f);
+
  if(o[1]){
    score++;
-   let f=document.createElement("div");f.className="feedback goodfb";
-   f.innerHTML=`<b>✓ Correto!</b><br>${o[2]}`;
-   document.getElementById("q").appendChild(f);
-   let n=document.createElement("button");n.className="btn primary";n.style.width="100%";n.style.marginTop="8px";
+   bs.forEach(b=>b.disabled=true);
+   let n=document.createElement("button");
+   n.className="btn primary answer-next";
+   n.style.cssText="width:100%;margin-top:8px";
    n.textContent=step===DATA.steps.length-1?"Finalizar":"Continuar →";
    n.onclick=()=>{step++;if(step<DATA.steps.length)render();else finish()};
-   document.getElementById("q").appendChild(n);
- }else{
-   let f=document.createElement("div");f.className="feedback badfb";
-   f.innerHTML=`<b>⚠ Não é esse o caminho.</b><br>${o[2]}<br><br><b>Tente novamente.</b>`;
-   document.getElementById("q").appendChild(f);
-   setTimeout(()=>{if(document.getElementById("q")){document.querySelectorAll(".option").forEach(b=>b.disabled=false)}},50);
+   q.appendChild(n);
  }
 }
 function screen(s){document.getElementById("sn").textContent=s.name;let d=SCREENS[s.key],wrap=document.createElement("div");wrap.innerHTML=`<div class="real"><div class="sysbar">${d[0]} <span>Ambiente simulado</span></div><div class="sysnav">${d.slice(1,5).map((x,i)=>`<span class="${i===1?'sel':''}">${x}</span>`).join("")}</div><div class="content">${d[5]}</div></div>`;let r=wrap.firstElementChild;s.hot.forEach(h=>{let b=document.createElement("button");b.className="hot";Object.assign(b.style,{left:h.x+"%",top:h.y+"%",width:h.w+"%",height:h.h+"%"});b.onclick=()=>go(h.target);r.appendChild(b)});document.getElementById("screen").innerHTML="";document.getElementById("screen").appendChild(r);document.getElementById("screen").insertAdjacentHTML("afterend",`<div class="instructions"><b>🖱️ ${s.instruction}</b><br>As áreas clicáveis ficam sobre a tela. Na versão real, elas serão posicionadas sobre o print do sistema.</div>`);document.getElementById("q").innerHTML=`<label>Navegação</label><h4>Encontre na tela a ação necessária.</h4><div class="feedback" style="background:#f4f6fa;color:#647087">💡 O print pode ser substituído por uma imagem real sem mudar a lógica do cenário.</div>`}
@@ -156,41 +138,7 @@ function result(){
  </div>`;
 }
 
-document.getElementById("audioFile").addEventListener("change",function(e){
- const file=e.target.files[0]; if(!file)return;
- document.getElementById("demoAudio").src=URL.createObjectURL(file);
-});
 </script>
-<script>
-(function () {
-  // Feedback: keep exactly one visible feedback message at a time.
-  function cleanDecisionFeedback() {
-    const candidates = Array.from(document.querySelectorAll(
-      '.feedback, .decision-feedback, [data-feedback], .answer-feedback'
-    ));
-    if (candidates.length > 1) {
-      const visible = candidates.filter(el => {
-        const s = getComputedStyle(el);
-        return s.display !== 'none' && s.visibility !== 'hidden' && el.textContent.trim();
-      });
-      visible.slice(0, -1).forEach(el => el.remove());
-    }
-  }
 
-  // Guard common feedback creation paths: replace old feedback instead of stacking it.
-  const observer = new MutationObserver(() => cleanDecisionFeedback());
-  observer.observe(document.body, { childList: true, subtree: true });
-
-  // Each scenario owns its own call recording/transcription.
-  // The scenario object can expose:
-  //   audio: "cenarios/nome-do-fluxo/audio.mp3"
-  //   transcript: "..."
-  // The home page must not display a generic call recording.
-  window.FaturaSimConfig = window.FaturaSimConfig || {};
-  window.FaturaSimConfig.callBelongsToScenario = true;
-
-  cleanDecisionFeedback();
-})();
-</script>
 
 </body></html>
