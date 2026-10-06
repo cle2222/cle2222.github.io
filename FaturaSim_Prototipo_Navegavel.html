@@ -11,19 +11,38 @@ main{max-width:1400px;margin:auto;padding:28px}.hero{display:flex;justify-conten
 .grid{display:grid;grid-template-columns:320px 1fr;gap:15px}.chathead,.screenhead{height:55px;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 14px;gap:9px}.avatar{width:32px;height:32px;background:#eeeaff;border-radius:9px;display:grid;place-items:center}.chathead b,.screenhead b{font-size:11px}.chathead small,.screenhead small{display:block;color:var(--mut);font-size:9px}.messages{height:230px;padding:15px;overflow:auto}.bubble{font-size:10px;line-height:1.5;padding:9px 10px;border-radius:10px;margin-bottom:8px;max-width:94%}.client{background:#eef1f6;border-top-left-radius:3px}.rep{background:var(--p);color:white;margin-left:auto;border-top-right-radius:3px}.question{border-top:1px solid var(--line);padding:14px}.question label{font-size:9px;color:var(--mut);text-transform:uppercase;font-weight:800}.question h4{font-size:11px;line-height:1.45}.option{width:100%;text-align:left;border:1px solid var(--line);background:white;border-radius:8px;padding:9px;margin:4px 0;font-size:10px;color:#39455a;font-weight:650}.option.good{background:#eaf8f3;border-color:#78c9ad;color:#12664f}.option.bad{background:#fff0f2;border-color:#e1a0aa;color:#9b3040}.option:disabled{cursor:pointer;opacity:1}.feedback{font-size:10px;line-height:1.5;border-radius:8px;padding:9px;margin-top:8px}.goodfb{background:#eaf8f3;color:#12664f}.badfb{background:#fff0f2;color:#9b3040}
 .screenbody{padding:16px;background:#f7f8fb}.real{position:relative;max-width:950px;margin:auto;background:white;border:1px solid #cfd6e1;border-radius:7px;overflow:hidden}.sysbar{height:34px;background:#273149;color:white;padding:10px;font-size:9px;font-weight:800}.sysbar span{float:right;color:#aeb8ca;font-weight:500}.sysnav{height:34px;border-bottom:1px solid #dfe4eb;padding:7px;display:flex;gap:4px}.sysnav span{font-size:8px;padding:5px 8px;color:#69758b}.sysnav .sel{background:#eeeaff;color:var(--p);border-radius:4px;font-weight:800}.content{padding:17px;min-height:300px}.crumb{font-size:8px;color:#8993a6}.title{display:flex;justify-content:space-between;margin:10px 0;font-size:13px}.data{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.field{border:1px solid var(--line);padding:8px;border-radius:6px}.field small{display:block;font-size:7px;color:#8993a6}.field b{font-size:9px}.table{margin-top:12px;border:1px solid var(--line);border-radius:6px;overflow:hidden}.tr{display:grid;grid-template-columns:1fr 100px;padding:9px;font-size:8px;border-bottom:1px solid #e9edf2}.tr:last-child{border:0;font-weight:800}.th{background:#f2f4f8;font-weight:700}.notice{margin-top:10px;padding:9px;background:#fff4df;border:1px solid #f0dfba;border-radius:6px;font-size:8px;line-height:1.5;color:#76551d}.hot{position:absolute;border:2px dashed transparent;background:transparent;border-radius:6px}.hot:hover{border-color:var(--p);background:#5b3df51c}.instructions{margin-top:10px;background:white;border:1px solid var(--line);border-radius:8px;padding:10px;font-size:10px;color:#59657a}.result{margin-top:15px;padding:18px}.score{font-size:30px;font-weight:900;color:var(--p)}
 @media(max-width:850px){.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.chat{order:2}}@media(max-width:600px){main{padding:14px}.hero{display:block}.cards{grid-template-columns:1fr}.prog{display:none}}
-</style></head>
+</style>
+<style>
+#homePage input[type="file"][accept^="audio/"],
+#homePage #audioFile,
+.home-audio-upload {
+  display: none !important;
+}
+</style>
+
+
+<style id="home-no-call-recording">
+#homePage audio,
+#homePage input[type="file"][accept*="audio"],
+#homePage .audio-card,
+#homePage .call-recording,
+#homePage .transcript-card {
+  display: none !important;
+}
+</style>
+
+</head>
 <body>
 <header class="top"><div class="brand"><div class="logo">FS</div>FaturaSim <span class="badge">Protótipo navegável</span></div><span class="badge">Conhecimento • Treinamento</span></header>
 <main>
 <section id="home"><div class="hero"><div><div class="ey">Simulador de atendimento</div><h1>Esclarecimento de Faturas</h1><p>Navegue pelas telas do sistema, investigue a cobrança e escolha a argumentação correta.</p></div><button class="btn primary" onclick="start()">▶ Testar simulação</button></div>
 
-<div class="panel call-panel" style="margin-bottom:15px">
- <div class="panelhead"><div><b>📞 Chamada do cliente</b><br><span>O cenário pode apresentar uma gravação real e sua transcrição.</span></div><span>Áudio + texto</span></div>
+<span>Áudio + texto</span></div>
  <div style="padding:16px">
    <div id="audioArea" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
      <div style="border:1px solid var(--line);border-radius:10px;padding:13px;background:#fafbfc">
        <div style="font-size:10px;color:var(--mut);font-weight:800;text-transform:uppercase;margin-bottom:7px">Gravação</div>
-       <audio id="demoAudio" controls style="width:100%"></audio><input id="audioFile" type="file" accept="audio/*" style="width:100%;margin-top:8px;font-size:9px">
+       
        <div style="font-size:9px;color:var(--mut);margin-top:7px">No cenário real, o arquivo de áudio poderá ser associado ao atendimento.</div>
      </div>
      <div style="border:1px solid var(--line);border-radius:10px;padding:13px;background:#fafbfc">
@@ -141,4 +160,37 @@ document.getElementById("audioFile").addEventListener("change",function(e){
  const file=e.target.files[0]; if(!file)return;
  document.getElementById("demoAudio").src=URL.createObjectURL(file);
 });
-</script></body></html>
+</script>
+<script>
+(function () {
+  // Feedback: keep exactly one visible feedback message at a time.
+  function cleanDecisionFeedback() {
+    const candidates = Array.from(document.querySelectorAll(
+      '.feedback, .decision-feedback, [data-feedback], .answer-feedback'
+    ));
+    if (candidates.length > 1) {
+      const visible = candidates.filter(el => {
+        const s = getComputedStyle(el);
+        return s.display !== 'none' && s.visibility !== 'hidden' && el.textContent.trim();
+      });
+      visible.slice(0, -1).forEach(el => el.remove());
+    }
+  }
+
+  // Guard common feedback creation paths: replace old feedback instead of stacking it.
+  const observer = new MutationObserver(() => cleanDecisionFeedback());
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Each scenario owns its own call recording/transcription.
+  // The scenario object can expose:
+  //   audio: "cenarios/nome-do-fluxo/audio.mp3"
+  //   transcript: "..."
+  // The home page must not display a generic call recording.
+  window.FaturaSimConfig = window.FaturaSimConfig || {};
+  window.FaturaSimConfig.callBelongsToScenario = true;
+
+  cleanDecisionFeedback();
+})();
+</script>
+
+</body></html>
