@@ -1,203 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FaturaSim — Esclarecimento de Faturas</title>
+<title>FaturaSim | Treinamento</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f4f7fb;color:#172033}
-button{font:inherit;cursor:pointer}.hidden{display:none!important}
-.top{background:#fff;border-bottom:1px solid #e6eaf0;padding:16px 28px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:800;font-size:22px;color:#5427c8}.tag{font-size:12px;color:#687386}
-.page{max-width:1180px;margin:0 auto;padding:32px 22px}.hero{background:linear-gradient(135deg,#5427c8,#7b4ce2);color:#fff;border-radius:22px;padding:34px;margin-bottom:24px;box-shadow:0 16px 40px #5427c826}
-.hero h1{margin:0 0 8px;font-size:34px}.hero p{margin:0;opacity:.9}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #e5e9f0;border-radius:18px;padding:22px;box-shadow:0 8px 25px #1720330b}.card h3{margin:0 0 8px}.card p{color:#697386;font-size:14px;line-height:1.5}.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:700}.primary{background:#5427c8;color:#fff}.secondary{background:#eef0f5;color:#30394b}.full{width:100%}
-.sim{max-width:1400px;margin:0 auto;padding:18px}.simhead{background:#fff;border:1px solid #e4e8ef;border-radius:16px;padding:16px 20px;margin-bottom:14px}.simhead h2{margin:0 0 4px}.meta{color:#6b7484;font-size:13px}
-.layout{display:grid;grid-template-columns:360px 1fr;gap:14px;align-items:start}.panel{background:#fff;border:1px solid #e3e7ee;border-radius:16px;overflow:hidden}.paneltitle{padding:13px 16px;border-bottom:1px solid #e7eaf0;font-weight:800}.call{padding:15px;background:#f7f8fb}.call audio{width:100%}.trans{font-size:13px;line-height:1.5;color:#4e596c;margin-top:10px}.chat{padding:15px;min-height:130px}.bubble{padding:12px 14px;border-radius:14px;background:#eef1f6;line-height:1.45;font-size:14px}.question{padding:15px;border-top:1px solid #e7eaf0}.question label{font-size:11px;text-transform:uppercase;color:#6e7788;font-weight:800}.question h3{font-size:16px;margin:7px 0 12px}.option{display:block;width:100%;text-align:left;background:#fff;border:1px solid #d9dee8;border-radius:11px;padding:12px;margin:8px 0}.option:hover{border-color:#5427c8;background:#faf8ff}.option.good{border-color:#27a36a;background:#ecfaf3}.option.bad{border-color:#df4d5c;background:#fff0f2}.option:disabled{cursor:default}.feedback{border-radius:11px;padding:12px;margin-top:10px;font-size:13px;line-height:1.45}.goodfb{background:#ecfaf3;color:#176c48}.badfb{background:#fff0f2;color:#9e2635}
-.screenwrap{padding:16px;background:#edf1f6;min-height:600px}.screenname{font-size:12px;color:#687386;margin-bottom:9px;font-weight:800}.real{position:relative;background:#fff;min-height:520px;border:1px solid #cfd6e1;overflow:hidden;box-shadow:0 8px 25px #17203310}.sysbar{height:48px;background:#263348;color:#fff;padding:15px 18px;font-weight:700}.sysbar span{float:right;font-size:11px;opacity:.65}.sysnav{height:44px;border-bottom:1px solid #dce1e9;padding:0 14px;display:flex;align-items:center;gap:22px;font-size:12px;color:#6a7484}.sysnav .sel{color:#5427c8;font-weight:800;border-bottom:3px solid #5427c8;height:44px;display:flex;align-items:center}.content{padding:25px;color:#303a4d}.fakebox{border:1px solid #dfe4eb;border-radius:10px;padding:18px;margin-bottom:14px}.fakebox h3{margin:0 0 12px}.line{height:11px;background:#edf0f4;border-radius:8px;margin:9px 0}.small{width:45%}.medium{width:70%}.big{width:90%}.fakebtn{display:inline-block;background:#5427c8;color:#fff;border-radius:8px;padding:10px 14px;font-size:12px;margin-top:8px}.hot{position:absolute;border:2px solid transparent;background:transparent;z-index:5}.hot:hover{border-color:#5427c8;background:#5427c81a;border-radius:6px}.progress{height:6px;background:#e6eaf0;border-radius:20px;overflow:hidden;margin-top:12px}.bar{height:100%;background:#5427c8;transition:.25s}
-.finish{max-width:700px;margin:70px auto;text-align:center;background:#fff;border:1px solid #e4e8ef;border-radius:22px;padding:45px 30px}.finish .emoji{font-size:54px}.finish h1{margin:12px 0 7px}.finish p{color:#687386}.actions{display:flex;gap:10px;justify-content:center;margin-top:22px}
-@media(max-width:900px){.grid,.layout{grid-template-columns:1fr}.screenwrap{min-height:450px}.real{min-height:400px}}
+:root{
+ --ink:#172033;--muted:#697386;--line:#e5e9f0;--bg:#f6f7fb;--card:#fff;
+ --brand:#5b2cc9;--brand2:#7b52dc;--good:#14845b;--goodbg:#eaf8f2;
+ --bad:#c33d4d;--badbg:#fff0f2;--nav:#111827;--shadow:0 14px 35px rgba(23,32,51,.08)
+}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer}
+.header{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 34px;justify-content:space-between}
+.brand{display:flex;gap:11px;align-items:center;font-weight:850;letter-spacing:-.4px}.brandmark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;font-weight:900}
+.header span{font-size:12px;color:var(--muted)}
+.container{max-width:1220px;margin:auto;padding:32px 24px}
+.hero{background:linear-gradient(115deg,#29135f,#6334c7);border-radius:24px;color:#fff;padding:38px 42px;box-shadow:0 20px 50px rgba(65,33,145,.22);margin-bottom:25px}
+.hero .eyebrow{text-transform:uppercase;letter-spacing:1.2px;font-size:11px;font-weight:800;opacity:.72}.hero h1{font-size:36px;letter-spacing:-1.2px;margin:8px 0}.hero p{margin:0;max-width:700px;opacity:.86;line-height:1.55}
+.library{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.flow-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:235px}.flow-icon{width:42px;height:42px;border-radius:12px;background:#f0ebff;color:var(--brand);display:grid;place-items:center;font-weight:900;margin-bottom:18px}.flow-card h3{margin:0 0 8px;font-size:17px}.flow-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55;flex:1}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:750}.btn-primary{background:var(--brand);color:#fff}.btn-primary:hover{background:#4c22b0}.btn-secondary{background:#eef1f6;color:#3d4657}.btn-wide{width:100%}
+
+#simulation{display:none}.sim-shell{max-width:1460px;margin:auto;padding:20px}.sim-top{display:flex;align-items:center;gap:14px;margin-bottom:15px}.back{border:0;background:transparent;color:var(--muted);font-weight:700;padding:8px}.sim-title{flex:1}.sim-title h2{margin:0;font-size:21px;letter-spacing:-.4px}.sim-title p{margin:3px 0 0;color:var(--muted);font-size:12px}.step-indicator{font-size:12px;color:var(--muted);font-weight:700}.progress{height:5px;background:#e8ebf1;border-radius:20px;overflow:hidden;margin-bottom:15px}.progress>div{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:.25s}
+
+.workspace{display:grid;grid-template-columns:380px minmax(0,1fr);gap:15px;align-items:start}.left,.right{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.section-head{padding:14px 17px;border-bottom:1px solid var(--line);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.7px;color:#5e6879}
+.call{padding:16px;background:#fbfbfd}.customer{display:flex;align-items:center;gap:11px;margin-bottom:13px}.avatar{width:38px;height:38px;border-radius:50%;background:#ece7ff;color:var(--brand);display:grid;place-items:center;font-weight:900}.customer small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.callbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px}.callbox strong{display:block;font-size:12px;margin-bottom:9px}.callbox audio{width:100%;height:36px}.noaudio{font-size:12px;color:var(--muted);background:#f5f6f9;border-radius:8px;padding:10px}.transcript{margin-top:10px;font-size:12px;line-height:1.55;color:#4d5768}.transcript b{color:#263043}
+.chat{padding:15px}.bubble{background:#f0f2f6;border-radius:13px;padding:11px 13px;font-size:13px;line-height:1.5}.question{border-top:1px solid var(--line);padding:16px}.eyebrow2{font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:850;color:var(--brand)}.question h3{font-size:16px;line-height:1.4;margin:6px 0 12px}.option{width:100%;text-align:left;border:1px solid #dce1e9;background:#fff;border-radius:10px;padding:11px 12px;margin:5px 0;color:#273143}.option:hover{border-color:#9c84dc;background:#fbfaff}.option.good{border-color:#56b993;background:var(--goodbg)}.option.bad{border-color:#e37b88;background:var(--badbg)}.option:disabled{cursor:default}.feedback{margin-top:10px;border-radius:10px;padding:11px 12px;font-size:12px;line-height:1.5}.feedback.good{background:var(--goodbg);color:#126544}.feedback.bad{background:var(--badbg);color:#a32939}.next{margin-top:9px}
+
+.system{padding:15px;background:#eef1f6}.system-label{font-size:11px;color:#667184;font-weight:800;margin:0 0 9px}.screen-stage{background:#fff;border:1px solid #d7dce5;border-radius:12px;min-height:600px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.screen-stage.empty{background:linear-gradient(135deg,#f7f8fa,#edf0f5)}.empty-content{text-align:center;color:#6b7586;padding:30px}.empty-icon{font-size:42px;margin-bottom:10px}.empty-content h3{margin:0 0 7px;color:#30394b;font-size:17px}.empty-content p{font-size:12px;line-height:1.5;max-width:440px;margin:0 auto 15px}.upload-label{display:inline-block;background:#fff;border:1px solid #d6dce6;border-radius:9px;padding:9px 13px;font-size:12px;font-weight:750;cursor:pointer}.upload-label input{display:none}
+.real-screen{position:relative;width:100%;height:100%;min-height:600px;background:#fff}.real-screen img{display:block;width:100%;height:auto;min-height:600px;object-fit:contain;object-position:top center}.hotspot{position:absolute;border:2px solid transparent;background:transparent;border-radius:6px}.hotspot:hover,.hotspot:focus{border-color:#6c42d4;background:rgba(108,66,212,.10);outline:0}.screen-note{font-size:11px;color:#657083;margin-top:8px}
+
+#finish{display:none}.finish{max-width:650px;margin:80px auto;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:46px 34px;text-align:center}.finish-icon{width:72px;height:72px;border-radius:22px;background:var(--goodbg);display:grid;place-items:center;font-size:34px;margin:0 auto 16px}.finish h1{margin:0 0 8px}.finish p{color:var(--muted);font-size:14px}.finish-actions{display:flex;gap:9px;justify-content:center;margin-top:24px}
+@media(max-width:950px){.library{grid-template-columns:1fr}.workspace{grid-template-columns:1fr}.screen-stage,.real-screen,.real-screen img{min-height:430px}.header{padding:0 18px}.hero{padding:28px}.hero h1{font-size:29px}}
 </style>
 </head>
 <body>
-<header class="top"><div class="logo">FaturaSim</div><div class="tag">Simulador de esclarecimento de faturas</div></header>
+<header class="header"><div class="brand"><div class="brandmark">F</div>FaturaSim</div><span>Treinamento de esclarecimento de faturas</span></header>
 
-<section id="home" class="page">
-  <div class="hero"><h1>Esclarecimento de Faturas</h1><p>Treine o atendimento em uma simulação prática, com decisão, navegação no sistema e conclusão do procedimento.</p></div>
-  <div class="card" style="margin-bottom:18px"><h3>Biblioteca de cenários</h3><p>Escolha o fluxo que deseja praticar. Cada fluxo poderá ter sua própria gravação, transcrição, perguntas e telas de sistema.</p></div>
-  <div class="grid">
-    <div class="card"><h3>Fatura maior que o esperado</h3><p>Investigue os componentes da fatura e identifique a origem da cobrança.</p><button class="btn primary full" data-start="fatura">Iniciar fluxo →</button></div>
-    <div class="card"><h3>Serviço adicional</h3><p>Treine a consulta e validação de serviços adicionais contratados.</p><button class="btn primary full" data-start="servico">Iniciar fluxo →</button></div>
-    <div class="card"><h3>Juros e encargos</h3><p>Pratique a análise de encargos e a orientação correta ao cliente.</p><button class="btn primary full" data-start="juros">Iniciar fluxo →</button></div>
-  </div>
+<main id="home" class="container">
+<section class="hero"><div class="eyebrow">Biblioteca de treinamento</div><h1>Escolha o fluxo para praticar</h1><p>Cada cenário possui sua própria chamada, transcrição, decisões e navegação no sistema. O ambiente simula o atendimento do início ao fim.</p></section>
+<section class="library">
+<article class="flow-card"><div class="flow-icon">01</div><h3>Fatura maior que o esperado</h3><p>Identifique a origem da diferença e conduza o cliente pela análise da cobrança.</p><button class="btn btn-primary btn-wide start" data-flow="fatura">Iniciar fluxo</button></article>
+<article class="flow-card"><div class="flow-icon">02</div><h3>Serviço adicional</h3><p>Analise um serviço adicional apresentado na fatura e aplique o procedimento correto.</p><button class="btn btn-primary btn-wide start" data-flow="servico">Iniciar fluxo</button></article>
+<article class="flow-card"><div class="flow-icon">03</div><h3>Juros e encargos</h3><p>Consulte o histórico e esclareça a cobrança de juros e encargos.</p><button class="btn btn-primary btn-wide start" data-flow="juros">Iniciar fluxo</button></article>
 </section>
+</main>
 
-<section id="simulation" class="hidden">
-<div class="sim">
-  <div class="simhead">
-    <button id="homeBtn" class="btn secondary">← Página inicial</button>
-    <h2 id="scenarioTitle"></h2><div class="meta" id="scenarioDesc"></div>
-    <div class="progress"><div id="progressBar" class="bar" style="width:0"></div></div>
-  </div>
-  <div class="layout">
-    <div class="panel">
-      <div class="paneltitle">👤 Cliente</div>
-      <div class="call">
-        <b id="customerName"></b>
-        <audio id="scenarioAudio" controls class="hidden"></audio>
-        <div id="audioPlaceholder" class="meta">Gravação deste fluxo será adicionada aqui.</div>
-        <div class="trans" id="transcript"></div>
-      </div>
-      <div class="chat" id="chat"></div>
-      <div class="question" id="question"></div>
-    </div>
-    <div class="panel">
-      <div class="paneltitle">🖥️ Sistema</div>
-      <div class="screenwrap">
-        <div class="screenname" id="screenName"></div>
-        <div id="screen"></div>
-      </div>
-    </div>
-  </div>
+<section id="simulation">
+<div class="sim-shell">
+<div class="sim-top"><button id="backHome" class="back">← Voltar</button><div class="sim-title"><h2 id="flowTitle"></h2><p id="flowDesc"></p></div><div class="step-indicator" id="stepIndicator"></div></div>
+<div class="progress"><div id="progressBar"></div></div>
+<div class="workspace">
+<aside class="left">
+<div class="section-head">Chamada</div>
+<div class="call">
+<div class="customer"><div class="avatar">C</div><div><b id="customer"></b><small>Cliente</small></div></div>
+<div class="callbox"><strong>🎧 Gravação desta chamada</strong><audio id="audio" controls></audio><div id="noAudio" class="noaudio">O arquivo de áudio deste cenário ainda será associado aqui.</div><div class="transcript"><b>Transcrição</b><br><span id="transcript"></span></div></div>
+</div>
+<div class="chat" id="chat"></div>
+<div class="question" id="question"></div>
+</aside>
+<section class="right">
+<div class="section-head">Sistema utilizado no procedimento</div>
+<div class="system"><div class="system-label" id="screenLabel"></div><div id="screenStage" class="screen-stage"></div><div class="screen-note">A área roxa aparece apenas ao passar o mouse sobre uma área clicável durante o treinamento.</div></div>
+</section>
+</div>
 </div>
 </section>
 
-<section id="finish" class="hidden">
-  <div class="finish">
-    <div class="emoji">🎉</div><h1>Simulação concluída!</h1>
-    <p>Parabéns! Você concluiu o procedimento.</p>
-    <p id="scoreText"></p>
-    <div class="actions">
-      <button id="restartBtn" class="btn secondary">↻ Refazer simulação</button>
-      <button id="finishHomeBtn" class="btn primary">⌂ Voltar para página inicial</button>
-    </div>
-  </div>
-</section>
+<section id="finish"><div class="finish"><div class="finish-icon">✓</div><h1>Simulação concluída</h1><p>Parabéns! Você concluiu o procedimento.</p><p id="result"></p><div class="finish-actions"><button id="again" class="btn btn-secondary">↻ Refazer</button><button id="homeFinish" class="btn btn-primary">⌂ Página inicial</button></div></div></section>
 
 <script>
-const scenarios={
- fatura:{
-  title:"Fatura maior que o esperado",desc:"Investigue a composição da cobrança e confirme a origem do valor.",customer:"Marcos Almeida",
-  audio:"",transcript:"O cliente informa que a fatura deste mês veio mais alta e quer entender o motivo.",
-  screens:{
-   fatura:{name:"Fatura — visão geral",kind:"invoice",hot:{x:64,y:46,w:25,h:14,target:"detalhamento"}},
-   detalhamento:{name:"Detalhamento da fatura",kind:"detail",hot:{x:67,y:55,w:23,h:14,target:"servicos"}},
-   servicos:{name:"Serviços e adicionais",kind:"services",hot:{x:63,y:52,w:25,h:14,target:"historico"}},
-   historico:{name:"Histórico de cobranças",kind:"history",hot:null}
-  },
-  steps:[
-   {type:"decision",q:"Qual deve ser sua primeira ação?",opts:[
-    ["Consultar o detalhamento da fatura.",true,"Boa! Primeiro precisamos identificar exatamente quais itens compõem o valor cobrado."],
-    ["Informar que o valor está correto.",false,"Não é possível confirmar isso antes de analisar a composição da fatura."],
-    ["Orientar o cliente a pagar e depois contestar.",false,"A orientação precisa ser baseada na análise da cobrança."]
-   ]},
-   {type:"screen",key:"fatura",instruction:"Localize no sistema o acesso ao detalhamento da fatura."},
-   {type:"screen",key:"detalhamento",instruction:"Acesse a área que permite consultar os serviços e adicionais."},
-   {type:"screen",key:"servicos",instruction:"Consulte o histórico relacionado aos serviços cobrados."},
-   {type:"screen",key:"historico",instruction:"Agora analise as informações exibidas e siga para a decisão final."},
-   {type:"decision",q:"Após consultar o histórico, qual é a melhor orientação?",opts:[
-    ["Explicar ao cliente a origem da cobrança e orientar conforme o procedimento.",true,"Perfeito! A orientação deve ser baseada na origem identificada no sistema."],
-    ["Dizer apenas que o sistema calculou automaticamente.",false,"Isso não esclarece a origem da cobrança."],
-    ["Encerrar a chamada sem explicar os itens.",false,"O objetivo é esclarecer a fatura ao cliente."]
-   ]}
-  ]
- },
- servico:{
-  title:"Serviço adicional",desc:"Valide a origem de um serviço adicional apresentado na fatura.",customer:"Marcos Almeida",
-  audio:"",transcript:"O cliente questiona um serviço adicional que apareceu na fatura.",
-  screens:{fatura:{name:"Fatura — visão geral",kind:"invoice",hot:{x:64,y:46,w:25,h:14,target:"detalhamento"}},detalhamento:{name:"Detalhamento",kind:"detail",hot:{x:67,y:55,w:23,h:14,target:"servicos"}},servicos:{name:"Serviços adicionais",kind:"services",hot:null}},
-  steps:[
-   {type:"decision",q:"Qual consulta deve ser feita primeiro?",opts:[["Abrir o detalhamento da fatura.",true,"Correto. O detalhamento mostra a composição da cobrança."],["Cancelar imediatamente o serviço.",false,"Antes é necessário confirmar a origem do serviço."],["Ignorar a cobrança.",false,"A cobrança precisa ser analisada."]]},
-   {type:"screen",key:"fatura",instruction:"Abra o detalhamento da fatura."},
-   {type:"screen",key:"detalhamento",instruction:"Acesse os serviços adicionais."},
-   {type:"screen",key:"servicos",instruction:"Analise o serviço e siga para a decisão final."},
-   {type:"decision",q:"Como orientar o cliente?",opts:[["Explicar o serviço identificado e seguir o procedimento aplicável.",true,"Perfeito!"],["Informar que toda cobrança adicional é obrigatória.",false,"Isso não pode ser afirmado sem análise."],["Encerrar sem esclarecer.",false,"O cliente precisa receber a orientação adequada."]]}
-  ]
- },
- juros:{
-  title:"Juros e encargos",desc:"Analise uma cobrança de juros e encargos.",customer:"Marcos Almeida",
-  audio:"",transcript:"O cliente quer entender por que foram incluídos juros e encargos.",
-  screens:{fatura:{name:"Fatura — visão geral",kind:"invoice",hot:{x:64,y:46,w:25,h:14,target:"detalhamento"}},detalhamento:{name:"Detalhamento de encargos",kind:"detail",hot:{x:67,y:55,w:23,h:14,target:"historico"}},historico:{name:"Histórico",kind:"history",hot:null}},
-  steps:[
-   {type:"decision",q:"O que deve ser consultado?",opts:[["O detalhamento e o histórico da cobrança.",true,"Correto. É necessário verificar a origem dos encargos."],["Apenas o valor total.",false,"O total não explica a origem dos encargos."],["Informar que juros são sempre indevidos.",false,"Isso não pode ser concluído sem consulta."]]},
-   {type:"screen",key:"fatura",instruction:"Abra o detalhamento da cobrança."},
-   {type:"screen",key:"detalhamento",instruction:"Consulte os encargos e o histórico."},
-   {type:"screen",key:"historico",instruction:"Analise o histórico e siga para a decisão final."},
-   {type:"decision",q:"Qual é a orientação correta?",opts:[["Explicar a origem dos encargos e orientar conforme o procedimento.",true,"Perfeito!"],["Remover os encargos sem consultar o procedimento.",false,"A alteração depende das regras aplicáveis."],["Dizer que não há como consultar.",false,"O sistema disponibiliza as informações necessárias."]]}
-  ]
- }
+const FLOWS={
+fatura:{
+title:"Fatura maior que o esperado",desc:"Investigue a composição da cobrança e identifique a origem do valor.",customer:"Marcos Almeida",
+audio:"",transcript:"Olá, minha fatura veio bem mais alta este mês. Eu queria entender de onde veio essa diferença.",
+steps:[
+{type:"decision",question:"Qual deve ser sua primeira ação?",answers:[
+["Consultar o detalhamento da fatura.",1,"Correto. Primeiro precisamos identificar os componentes da cobrança."],
+["Informar imediatamente que o valor está correto.",0,"Não podemos confirmar isso sem analisar a composição da fatura."],
+["Orientar o cliente a pagar e depois questionar.",0,"Primeiro é necessário analisar a cobrança."]
+]},
+{type:"screen",name:"Fatura — visão geral",image:"",instruction:"Localize na tela o acesso ao detalhamento da fatura.",hotspot:{x:62,y:43,w:25,h:16}},
+{type:"screen",name:"Detalhamento da fatura",image:"",instruction:"Acesse a área de serviços e adicionais.",hotspot:{x:62,y:48,w:26,h:16}},
+{type:"screen",name:"Serviços e adicionais",image:"",instruction:"Consulte o histórico relacionado aos serviços cobrados.",hotspot:{x:60,y:50,w:29,h:16}},
+{type:"screen",name:"Histórico de cobranças",image:"",instruction:"Analise o histórico exibido e clique em Continuar para tomar a decisão final.",hotspot:null},
+{type:"decision",question:"Após consultar o histórico, qual é a melhor orientação?",answers:[
+["Explicar a origem da cobrança e orientar conforme o procedimento.",1,"Perfeito. A orientação deve ser baseada no que foi identificado no sistema."],
+["Dizer apenas que o sistema calculou automaticamente.",0,"Isso não esclarece a origem da cobrança."],
+["Encerrar a chamada sem explicar os itens.",0,"O objetivo é esclarecer a fatura ao cliente."]
+]}
+]},
+servico:{
+title:"Serviço adicional",desc:"Valide a origem de um serviço adicional apresentado na fatura.",customer:"Marcos Almeida",
+audio:"",transcript:"Apareceu um serviço adicional na minha fatura e eu não sei de onde veio.",
+steps:[
+{type:"decision",question:"Qual consulta deve ser feita primeiro?",answers:[
+["Abrir o detalhamento da fatura.",1,"Correto. O detalhamento mostra a composição da cobrança."],
+["Cancelar imediatamente o serviço.",0,"Antes é necessário confirmar a origem do serviço."],
+["Ignorar a cobrança.",0,"A cobrança precisa ser analisada."]
+]},
+{type:"screen",name:"Fatura — visão geral",image:"",instruction:"Abra o detalhamento da fatura.",hotspot:{x:62,y:43,w:25,h:16}},
+{type:"screen",name:"Detalhamento",image:"",instruction:"Acesse os serviços adicionais.",hotspot:{x:62,y:48,w:26,h:16}},
+{type:"screen",name:"Serviços adicionais",image:"",instruction:"Analise o serviço e clique em Continuar para seguir.",hotspot:null},
+{type:"decision",question:"Como orientar o cliente?",answers:[
+["Explicar o serviço identificado e seguir o procedimento aplicável.",1,"Perfeito!"],
+["Informar que toda cobrança adicional é obrigatória.",0,"Isso não pode ser afirmado sem análise."],
+["Encerrar sem esclarecer.",0,"O cliente precisa receber a orientação adequada."]
+]}
+]},
+juros:{
+title:"Juros e encargos",desc:"Analise uma cobrança de juros e encargos.",customer:"Marcos Almeida",
+audio:"",transcript:"Quero entender por que foram incluídos juros e encargos nessa fatura.",
+steps:[
+{type:"decision",question:"O que deve ser consultado?",answers:[
+["O detalhamento e o histórico da cobrança.",1,"Correto. É necessário verificar a origem dos encargos."],
+["Apenas o valor total.",0,"O total não explica a origem dos encargos."],
+["Informar que os juros são sempre indevidos.",0,"Isso não pode ser concluído sem consulta."]
+]},
+{type:"screen",name:"Fatura — visão geral",image:"",instruction:"Abra o detalhamento da cobrança.",hotspot:{x:62,y:43,w:25,h:16}},
+{type:"screen",name:"Detalhamento de encargos",image:"",instruction:"Consulte os encargos e avance para o histórico.",hotspot:{x:62,y:48,w:26,h:16}},
+{type:"screen",name:"Histórico",image:"",instruction:"Analise o histórico e clique em Continuar para tomar a decisão final.",hotspot:null},
+{type:"decision",question:"Qual é a orientação correta?",answers:[
+["Explicar a origem dos encargos e orientar conforme o procedimento.",1,"Perfeito!"],
+["Remover os encargos sem consultar o procedimento.",0,"A alteração depende das regras aplicáveis."],
+["Dizer que não há como consultar.",0,"O sistema disponibiliza as informações necessárias."]
+]}
+]}
 };
 
-let current=null,step=0,score=0;
+let flow=null,index=0,score=0;
 
-function show(id){document.getElementById("home").classList.toggle("hidden",id!=="home");document.getElementById("simulation").classList.toggle("hidden",id!=="simulation");document.getElementById("finish").classList.toggle("hidden",id!=="finish")}
-function goHome(){show("home");}
-function startScenario(id){
- current=scenarios[id];step=0;score=0;
- document.getElementById("scenarioTitle").textContent=current.title;
- document.getElementById("scenarioDesc").textContent=current.desc;
- document.getElementById("customerName").textContent=current.customer;
- document.getElementById("transcript").textContent="“"+current.transcript+"”";
- const a=document.getElementById("scenarioAudio"),ph=document.getElementById("audioPlaceholder");
- if(current.audio){a.src=current.audio;a.classList.remove("hidden");ph.classList.add("hidden")}else{a.removeAttribute("src");a.classList.add("hidden");ph.classList.remove("hidden")}
- document.getElementById("chat").innerHTML='<div class="bubble">Olá! Estou ouvindo o cliente e vou iniciar a análise.</div>';
- show("simulation");render();
+function showHome(){document.getElementById("home").style.display="block";document.getElementById("simulation").style.display="none";document.getElementById("finish").style.display="none"}
+function showSimulation(){document.getElementById("home").style.display="none";document.getElementById("simulation").style.display="block";document.getElementById("finish").style.display="none"}
+function showFinish(){document.getElementById("home").style.display="none";document.getElementById("simulation").style.display="none";document.getElementById("finish").style.display="block"}
+
+function start(id){
+ flow=FLOWS[id];index=0;score=0;
+ document.getElementById("flowTitle").textContent=flow.title;
+ document.getElementById("flowDesc").textContent=flow.desc;
+ document.getElementById("customer").textContent=flow.customer;
+ document.getElementById("transcript").textContent=flow.transcript;
+ const audio=document.getElementById("audio"),no=document.getElementById("noAudio");
+ if(flow.audio){audio.src=flow.audio;audio.style.display="block";no.style.display="none"}else{audio.removeAttribute("src");audio.style.display="none";no.style.display="block"}
+ document.getElementById("chat").innerHTML='<div class="bubble">A chamada foi iniciada. Analise o relato do cliente e escolha a próxima ação.</div>';
+ showSimulation();render();
 }
+
 function render(){
- const s=current.steps[step];
- document.getElementById("progressBar").style.width=((step+1)/current.steps.length*100)+"%";
- if(s.type==="decision")renderDecision(s); else renderScreen(s);
+ const total=flow.steps.length;
+ const s=flow.steps[index];
+ document.getElementById("stepIndicator").textContent="Etapa "+(index+1)+" de "+total;
+ document.getElementById("progressBar").style.width=((index+1)/total*100)+"%";
+ if(s.type==="decision")decision(s);else system(s);
 }
-function renderDecision(s){
- document.getElementById("screenName").textContent="Aguardando tomada de decisão";
- document.getElementById("screen").innerHTML='<div class="real"><div class="sysbar">Central de Atendimento <span>Ambiente simulado</span></div><div class="content"><div class="fakebox"><h3>Procedimento</h3><div class="line big"></div><div class="line medium"></div><div class="line small"></div><div class="fakebtn">Consultar</div></div><div class="fakebox"><b>Decisão do representante</b><p>Selecione a melhor alternativa no painel ao lado.</p></div></div></div>';
+
+function decision(s){
+ document.getElementById("screenLabel").textContent="Tomada de decisão";
+ document.getElementById("screenStage").className="screen-stage empty";
+ document.getElementById("screenStage").innerHTML='<div class="empty-content"><div class="empty-icon">🧭</div><h3>Decisão do procedimento</h3><p>A tomada de decisão está no painel à esquerda. Escolha uma alternativa para continuar.</p></div>';
  const q=document.getElementById("question");
- q.innerHTML='<label>Tomada de decisão</label><h3>'+s.q+'</h3><div id="options"></div>';
- s.opts.forEach((o,i)=>{const b=document.createElement("button");b.className="option";b.textContent=o[0];b.onclick=()=>answer(i);document.getElementById("options").appendChild(b)});
+ q.innerHTML='<div class="eyebrow2">Tomada de decisão</div><h3>'+s.question+'</h3><div id="opts"></div>';
+ s.answers.forEach((a,i)=>{const b=document.createElement("button");b.className="option";b.textContent=a[0];b.onclick=()=>answer(i);document.getElementById("opts").appendChild(b)});
 }
+
 function answer(i){
- const s=current.steps[step],o=s.opts[i],q=document.getElementById("question");
- q.querySelectorAll(".feedback,.answer-next").forEach(e=>e.remove());
- q.querySelectorAll(".option").forEach((b,j)=>{b.classList.remove("bad","good");if(j===i)b.classList.add(o[1]?"good":"bad")});
- const f=document.createElement("div");f.className="feedback "+(o[1]?"goodfb":"badfb");
- f.innerHTML="<b>"+(o[1]?"✓ Correto!":"⚠ Tente novamente.")+"</b><br>"+o[2];
- q.appendChild(f);
- if(o[1]){
+ const s=flow.steps[index],a=s.answers[i],q=document.getElementById("question");
+ q.querySelectorAll(".feedback,.next").forEach(e=>e.remove());
+ q.querySelectorAll(".option").forEach((b,j)=>{b.classList.remove("bad","good");if(j===i)b.classList.add(a[1]?"good":"bad")});
+ const f=document.createElement("div");f.className="feedback "+(a[1]?"good":"bad");f.innerHTML="<b>"+(a[1]?"✓ Correto":"⚠ Ainda não")+"</b><br>"+a[2];q.appendChild(f);
+ if(a[1]){
   score++;
   q.querySelectorAll(".option").forEach(b=>b.disabled=true);
-  const n=document.createElement("button");n.className="btn primary full answer-next";n.style.marginTop="10px";n.textContent=step===current.steps.length-1?"Finalizar":"Continuar →";
-  n.onclick=()=>{step++;step<current.steps.length?render():finish()};q.appendChild(n);
+  const n=document.createElement("button");n.className="btn btn-primary btn-wide next";n.textContent=index===flow.steps.length-1?"Finalizar simulação":"Continuar →";n.onclick=()=>{index++;index<flow.steps.length?render():finish()};q.appendChild(n)
  }
 }
-function renderScreen(s){
- const d=current.screens[s.key];
- document.getElementById("screenName").textContent=d.name;
- const c={invoice:["Fatura","Resumo","Detalhamento","Histórico","Atendimento"],detail:["Detalhamento","Fatura","Itens","Serviços","Histórico"],services:["Serviços","Fatura","Contratos","Adicionais","Histórico"],history:["Histórico","Fatura","Eventos","Cobranças","Atendimento"]}[d.kind]||["Sistema","Fatura","Consulta","Histórico","Atendimento"];
- let body="";
- if(d.kind==="invoice")body='<div class="fakebox"><h3>Fatura do cliente</h3><div class="line big"></div><div class="line medium"></div><div class="line small"></div><div class="fakebtn">Ver detalhamento</div></div>';
- else if(d.kind==="detail")body='<div class="fakebox"><h3>Detalhamento da cobrança</h3><div class="line big"></div><div class="line medium"></div><div class="line medium"></div><div class="fakebtn">Consultar serviços</div></div>';
- else if(d.kind==="services")body='<div class="fakebox"><h3>Serviços e adicionais</h3><div class="line big"></div><div class="line medium"></div><div class="line small"></div><div class="fakebtn">Consultar histórico</div></div>';
- else body='<div class="fakebox"><h3>Histórico de cobranças</h3><div class="line big"></div><div class="line medium"></div><div class="line medium"></div><div class="line small"></div></div>';
- document.getElementById("screen").innerHTML='<div class="real"><div class="sysbar">Central de Atendimento <span>Ambiente simulado</span></div><div class="sysnav">'+c.map((x,i)=>'<span class="'+(i===2?'sel':'')+'">'+x+'</span>').join("")+'</div><div class="content">'+body+'</div></div>';
- const real=document.querySelector("#screen .real"),h=d.hot;
- if(h){const b=document.createElement("button");b.className="hot";b.style.left=h.x+"%";b.style.top=h.y+"%";b.style.width=h.w+"%";b.style.height=h.h+"%";b.title="Clique na área correta";b.onclick=()=>{step++;render()};real.appendChild(b)}
- document.getElementById("question").innerHTML='<label>Navegação</label><h3>'+s.instruction+'</h3><div class="feedback" style="background:#f4f6fa;color:#596579">🖱️ Clique na área correta da tela do sistema.</div>';
-}
-function finish(){document.getElementById("scoreText").textContent="Acertos: "+score+" de "+current.steps.filter(s=>s.type==="decision").length;show("finish")}
-function restart(){startScenario(Object.keys(scenarios).find(k=>scenarios[k]===current)||"fatura")}
 
-document.addEventListener("DOMContentLoaded", function(){
-  document.querySelectorAll("[data-start]").forEach(function(btn){
-    btn.addEventListener("click", function(){
-      startScenario(btn.getAttribute("data-start"));
-    });
-  });
-  var hb=document.getElementById("homeBtn");
-  if(hb) hb.addEventListener("click",goHome);
-  var rb=document.getElementById("restartBtn");
-  if(rb) rb.addEventListener("click",restart);
-  var fh=document.getElementById("finishHomeBtn");
-  if(fh) fh.addEventListener("click",goHome);
-});
+function system(s){
+ document.getElementById("screenLabel").textContent=s.name;
+ const stage=document.getElementById("screenStage");
+ stage.className="screen-stage";
+ stage.innerHTML="";
+ if(s.image){
+  const box=document.createElement("div");box.className="real-screen";
+  const img=document.createElement("img");img.src=s.image;img.alt=s.name;box.appendChild(img);
+  if(s.hotspot) addHotspot(box,s.hotspot);
+  stage.appendChild(box);
+ }else{
+  stage.className="screen-stage empty";
+  stage.innerHTML='<div class="empty-content"><div class="empty-icon">🖥️</div><h3>Print real do sistema</h3><p>Aqui entrará o print da tela real do sistema. Na versão final, a imagem ocupa esta área e o hotspot ficará sobre o botão/área correta.</p><label class="upload-label">Selecionar print<input type="file" accept="image/*" onchange="loadScreenImage(event)"></label></div>';
+ }
+ const q=document.getElementById("question");
+ q.innerHTML='<div class="eyebrow2">Navegação no sistema</div><h3>'+s.instruction+'</h3>';
+ if(s.hotspot && !s.image){
+  const f=document.createElement("div");f.className="feedback";f.style.background="#f5f6f9";f.style.color="#5f697b";f.textContent="O hotspot está aguardando o print real. No protótipo, você pode selecionar uma imagem acima para visualizar a interação.";q.appendChild(f);
+ }else if(s.hotspot && s.image){
+  const f=document.createElement("div");f.className="feedback";f.style.background="#f5f6f9";f.style.color="#5f697b";f.textContent="Clique na área correta da tela.";q.appendChild(f);
+ }else{
+  const n=document.createElement("button");n.className="btn btn-primary btn-wide next";n.textContent="Continuar →";n.onclick=()=>{index++;index<flow.steps.length?render():finish()};q.appendChild(n);
+ }
+}
+
+function addHotspot(box,h){
+ const b=document.createElement("button");b.className="hotspot";b.style.left=h.x+"%";b.style.top=h.y+"%";b.style.width=h.w+"%";b.style.height=h.h+"%";b.title="Área de interação";b.onclick=()=>{index++;index<flow.steps.length?render():finish()};box.appendChild(b)
+}
+function loadScreenImage(e){
+ const file=e.target.files[0];if(!file)return;
+ const url=URL.createObjectURL(file);
+ const s=flow.steps[index];s.image=url;render();
+}
+function finish(){document.getElementById("result").textContent="Você concluiu "+flow.title+" com "+score+" decisão(ões) correta(s).";showFinish()}
+function restart(){const id=Object.keys(FLOWS).find(k=>FLOWS[k]===flow);start(id||"fatura")}
+
+document.querySelectorAll(".start").forEach(b=>b.addEventListener("click",()=>start(b.dataset.flow)));
+document.getElementById("backHome").addEventListener("click",showHome);
+document.getElementById("homeFinish").addEventListener("click",showHome);
+document.getElementById("again").addEventListener("click",restart);
 </script>
-</body></html>
+</body>
+</html>
