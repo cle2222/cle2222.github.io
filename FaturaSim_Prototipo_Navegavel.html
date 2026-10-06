@@ -26,16 +26,16 @@ button{font:inherit;cursor:pointer}.hidden{display:none!important}
   <div class="hero"><h1>Esclarecimento de Faturas</h1><p>Treine o atendimento em uma simulação prática, com decisão, navegação no sistema e conclusão do procedimento.</p></div>
   <div class="card" style="margin-bottom:18px"><h3>Biblioteca de cenários</h3><p>Escolha o fluxo que deseja praticar. Cada fluxo poderá ter sua própria gravação, transcrição, perguntas e telas de sistema.</p></div>
   <div class="grid">
-    <div class="card"><h3>Fatura maior que o esperado</h3><p>Investigue os componentes da fatura e identifique a origem da cobrança.</p><button class="btn primary full" onclick="startScenario('fatura')">Iniciar fluxo →</button></div>
-    <div class="card"><h3>Serviço adicional</h3><p>Treine a consulta e validação de serviços adicionais contratados.</p><button class="btn primary full" onclick="startScenario('servico')">Iniciar fluxo →</button></div>
-    <div class="card"><h3>Juros e encargos</h3><p>Pratique a análise de encargos e a orientação correta ao cliente.</p><button class="btn primary full" onclick="startScenario('juros')">Iniciar fluxo →</button></div>
+    <div class="card"><h3>Fatura maior que o esperado</h3><p>Investigue os componentes da fatura e identifique a origem da cobrança.</p><button class="btn primary full" data-start="fatura">Iniciar fluxo →</button></div>
+    <div class="card"><h3>Serviço adicional</h3><p>Treine a consulta e validação de serviços adicionais contratados.</p><button class="btn primary full" data-start="servico">Iniciar fluxo →</button></div>
+    <div class="card"><h3>Juros e encargos</h3><p>Pratique a análise de encargos e a orientação correta ao cliente.</p><button class="btn primary full" data-start="juros">Iniciar fluxo →</button></div>
   </div>
 </section>
 
 <section id="simulation" class="hidden">
 <div class="sim">
   <div class="simhead">
-    <button class="btn secondary" onclick="goHome()">← Página inicial</button>
+    <button id="homeBtn" class="btn secondary">← Página inicial</button>
     <h2 id="scenarioTitle"></h2><div class="meta" id="scenarioDesc"></div>
     <div class="progress"><div id="progressBar" class="bar" style="width:0"></div></div>
   </div>
@@ -68,8 +68,8 @@ button{font:inherit;cursor:pointer}.hidden{display:none!important}
     <p>Parabéns! Você concluiu o procedimento.</p>
     <p id="scoreText"></p>
     <div class="actions">
-      <button class="btn secondary" onclick="restart()">↻ Refazer simulação</button>
-      <button class="btn primary" onclick="goHome()">⌂ Voltar para página inicial</button>
+      <button id="restartBtn" class="btn secondary">↻ Refazer simulação</button>
+      <button id="finishHomeBtn" class="btn primary">⌂ Voltar para página inicial</button>
     </div>
   </div>
 </section>
@@ -185,5 +185,19 @@ function renderScreen(s){
 }
 function finish(){document.getElementById("scoreText").textContent="Acertos: "+score+" de "+current.steps.filter(s=>s.type==="decision").length;show("finish")}
 function restart(){startScenario(Object.keys(scenarios).find(k=>scenarios[k]===current)||"fatura")}
+
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelectorAll("[data-start]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      startScenario(btn.getAttribute("data-start"));
+    });
+  });
+  var hb=document.getElementById("homeBtn");
+  if(hb) hb.addEventListener("click",goHome);
+  var rb=document.getElementById("restartBtn");
+  if(rb) rb.addEventListener("click",restart);
+  var fh=document.getElementById("finishHomeBtn");
+  if(fh) fh.addEventListener("click",goHome);
+});
 </script>
 </body></html>
