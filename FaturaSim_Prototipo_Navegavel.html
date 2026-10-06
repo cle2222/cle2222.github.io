@@ -57,6 +57,7 @@ main{max-width:1400px;margin:auto;padding:28px}.hero{display:flex;justify-conten
    ========================================================== */
 const DATA={
 title:"Fatura maior que o esperado",desc:"Identifique a origem da cobrança navegando pelo sistema.",client:"Marcos Almeida",
+audio:"",
 opening:"Minha fatura sempre vem perto de R$ 99,99, mas agora chegou R$ 157,43. Você consegue me explicar o que aconteceu?",
 steps:[
 {type:"question",text:"Antes de acessar o sistema, qual deve ser sua primeira ação?",opts:[
@@ -80,39 +81,68 @@ servicos:["SERVIÇOS","Resumo","Serviços","Histórico","Adesões",`<div class="
 historico:["SERVIÇOS","Resumo","Serviços","Histórico","Adesões",`<div class="crumb">Cliente / Histórico</div><div class="title"><b>Histórico do serviço</b><span>Seguro Celular</span></div><div class="table"><div class="tr th"><span>Evento</span><span>Data</span></div><div class="tr"><span>Serviço identificado na fatura</span><span>10/2026</span></div><div class="tr"><span>Status atual</span><span>Ativo</span></div></div><div class="notice">✓ <b>Histórico consultado.</b><br>A origem do serviço deve ser confirmada seguindo o procedimento de atendimento.</div>`]
 };
 let step=0,score=0,locked=false;
-function start(){step=0;score=0;locked=false;homeEl(false);document.getElementById("st").textContent=DATA.title;document.getElementById("sd").textContent=DATA.desc;document.getElementById("cn").textContent=DATA.client;document.getElementById("simAudio").src=document.getElementById("demoAudio").src||"";document.getElementById("simTranscript").textContent="“"+DATA.opening+"”";document.getElementById("msg").innerHTML=`<div class="bubble client">${DATA.opening}</div>`;render()}
-function home(){homeEl(true)}function homeEl(h){document.getElementById("home").classList.toggle("hide",!h);document.getElementById("sim").classList.toggle("hide",h)}
-function render(){locked=false;let s=DATA.steps[step],pct=Math.round(step/DATA.steps.length*100);document.getElementById("bar").style.width=Math.max(10,pct)+"%";document.getElementById("pct").textContent=`Etapa ${step+1} de ${DATA.steps.length}`;s.type==="question"?question(s):screen(s)}
-function question(s){document.getElementById("sn").textContent="Decisão do representante";document.getElementById("screen").innerHTML=`<div class="instructions"><b>🧭 Momento de decisão</b><br>Escolha a ação adequada para continuar.</div>`;document.getElementById("q").innerHTML=`<label>Decisão</label><h4>${s.text}</h4>`+s.opts.map((o,i)=>`<button class="option" onclick="answer(${i})">${String.fromCharCode(65+i)}) ${o[0]}</button>`).join("")}
-function answer(i){
- let s=DATA.steps[step],o=s.opts[i],q=document.getElementById("q");
- // Remove any previous feedback/action controls before showing the new result.
- q.querySelectorAll(".feedback,.answer-next").forEach(el=>el.remove());
+function start(){
+  step=0;score=0;locked=false;homeEl(false);
+  document.getElementById("st").textContent=DATA.title;
+  document.getElementById("sd").textContent=DATA.desc;
+  document.getElementById("cn").textContent=DATA.client;
 
- let bs=[...q.querySelectorAll(".option")];
- bs.forEach(b=>b.classList.remove("bad","good"));
- bs[i].classList.add(o[1]?"good":"bad");
+  const audio=document.getElementById("simAudio");
+  audio.pause();
+  audio.removeAttribute("src");
+  if(DATA.audio){
+    audio.src=DATA.audio;
+    audio.style.display="block";
+  }else{
+    audio.style.display="none";
+  }
 
- let f=document.createElement("div");
- f.className="feedback "+(o[1]?"goodfb":"badfb");
- f.innerHTML=o[1]
-   ? `<b>✓ Correto!</b><br>${o[2]}`
-   : `<b>⚠ Não é esse o caminho.</b><br>${o[2]}<br><br><b>Tente novamente.</b>`;
- q.appendChild(f);
-
- if(o[1]){
-   score++;
-   bs.forEach(b=>b.disabled=true);
-   let n=document.createElement("button");
-   n.className="btn primary answer-next";
-   n.style.cssText="width:100%;margin-top:8px";
-   n.textContent=step===DATA.steps.length-1?"Finalizar":"Continuar →";
-   n.onclick=()=>{step++;if(step<DATA.steps.length)render();else finish()};
-   q.appendChild(n);
- }
+  document.getElementById("simTranscript").textContent="“"+DATA.opening+"”";
+  document.getElementById("msg").innerHTML=`<div class="bubble client">${DATA.opening}</div>`;
+  render();
 }
-function screen(s){document.getElementById("sn").textContent=s.name;let d=SCREENS[s.key],wrap=document.createElement("div");wrap.innerHTML=`<div class="real"><div class="sysbar">${d[0]} <span>Ambiente simulado</span></div><div class="sysnav">${d.slice(1,5).map((x,i)=>`<span class="${i===1?'sel':''}">${x}</span>`).join("")}</div><div class="content">${d[5]}</div></div>`;let r=wrap.firstElementChild;s.hot.forEach(h=>{let b=document.createElement("button");b.className="hot";Object.assign(b.style,{left:h.x+"%",top:h.y+"%",width:h.w+"%",height:h.h+"%"});b.onclick=()=>go(h.target);r.appendChild(b)});document.getElementById("screen").innerHTML="";document.getElementById("screen").appendChild(r);document.getElementById("screen").insertAdjacentHTML("afterend",`<div class="instructions"><b>🖱️ ${s.instruction}</b><br>As áreas clicáveis ficam sobre a tela. Na versão real, elas serão posicionadas sobre o print do sistema.</div>`);document.getElementById("q").innerHTML=`<label>Navegação</label><h4>Encontre na tela a ação necessária.</h4><div class="feedback" style="background:#f4f6fa;color:#647087">💡 O print pode ser substituído por uma imagem real sem mudar a lógica do cenário.</div>`}
-function go(target){let idx=DATA.steps.findIndex((x,i)=>i>step&&x.type==="screen"&&x.key===target);if(idx<0)idx=step+1;step=idx;render()}
+function screen(s){
+  document.getElementById("sn").textContent=s.name;
+
+  const d=SCREENS[s.key];
+  const wrap=document.createElement("div");
+  wrap.innerHTML=`<div class="real">
+    <div class="sysbar">${d[0]} <span>Ambiente simulado</span></div>
+    <div class="sysnav">${d.slice(1,5).map((x,i)=>`<span class="${i===1?'sel':''}">${x}</span>`).join("")}</div>
+    <div class="content">${d[5]}</div>
+  </div>`;
+
+  const r=wrap.firstElementChild;
+
+  s.hot.forEach(h=>{
+    const b=document.createElement("button");
+    b.className="hot";
+    Object.assign(b.style,{
+      left:h.x+"%",top:h.y+"%",width:h.w+"%",height:h.h+"%"
+    });
+    b.setAttribute("aria-label","Área clicável");
+    b.onclick=()=>go(h.target);
+    r.appendChild(b);
+  });
+
+  document.getElementById("screen").innerHTML="";
+  document.getElementById("screen").appendChild(r);
+
+  // Remove any instruction from the previous system screen.
+  const q=document.getElementById("q");
+  q.innerHTML=`
+    <label>Navegação</label>
+    <h4>Encontre na tela a ação necessária.</h4>
+    <div class="feedback" style="background:#f4f6fa;color:#647087">
+      🖱️ ${s.instruction}
+    </div>`;
+}
+function go(target){
+  const idx=DATA.steps.findIndex((x,i)=>i>step && x.type==="screen" && x.key===target);
+  if(idx<0)return;
+  step=idx;
+  render();
+}
 function finish(){
  document.getElementById("bar").style.width="100%";document.getElementById("pct").textContent="Concluído";
  document.getElementById("q").innerHTML=`
